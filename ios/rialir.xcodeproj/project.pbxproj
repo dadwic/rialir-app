@@ -41,6 +41,7 @@
 		5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.release.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.debug.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-rialir.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rialir.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D804832B951AE000EF6712 /* Vazirmatn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vazirmatn.ttf; sourceTree = "<group>"; };
 		80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rialir/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.release.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		807D049D2B94939C004E0796 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				80D804832B951AE000EF6712 /* Vazirmatn.ttf */,
 				80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */,
 			);
 			name = Fonts;
@@ -592,7 +594,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -660,7 +665,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

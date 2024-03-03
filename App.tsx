@@ -1,13 +1,20 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {useColorScheme} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import BottomTabs from './BottomTabs';
 
-function App(): React.JSX.Element {
+export default function App(): React.JSX.Element {
+  const scheme = useColorScheme();
   return (
-    <NavigationContainer>
-      <BottomTabs />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <BottomTabs />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
-
-export default App;

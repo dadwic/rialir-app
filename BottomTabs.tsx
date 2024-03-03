@@ -1,49 +1,71 @@
-import React from 'react';
+/* eslint-disable react/no-unstable-nested-components */
+import React, {useEffect, useState} from 'react';
 import {WebView} from 'react-native-webview';
+import {ActivityIndicator, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [price, setPrice] = useState<any>();
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch(
+        'https://www.rialir.com/wp-json/wp/v2/pricing',
+      );
+      const data = await response.json();
+      setPrice(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return (
+    <View style={{flex: 1, padding: 24}}>
+      {isLoading ? <ActivityIndicator /> : <Text>{price.try}</Text>}
+    </View>
+  );
+};
+
+const OrderScreen = () => {
   return <WebView source={{uri: 'https://www.rialir.com/'}} />;
 };
 
 export default function BottomTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: '#CE0E2D',
       }}>
       <Tab.Screen
-        name="Feed"
-        component={HomeScreen}
+        name="Order"
+        component={OrderScreen}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+          tabBarLabelStyle: {fontWeight: 'bold'},
+          tabBarLabel: 'خرید از ترکیه',
+          tabBarIcon: ({size, color}) => (
+            <MaterialIcons name="local-mall" size={size} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications"
+        name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
-          ),
-          tabBarBadge: 3,
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+          tabBarLabelStyle: {fontWeight: 'bold'},
+          tabBarLabel: 'قیمت لحظه ای لیر',
+          tabBarIcon: ({size, color}) => (
+            <MaterialIcons name="currency-lira" size={size} color={color} />
           ),
         }}
       />

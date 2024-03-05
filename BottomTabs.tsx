@@ -8,6 +8,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {ccyFormat} from './utils';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ const HomeScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [price, setPrice] = useState<any>({});
 
-  const updateRate = async () => {
+  const updateRates = async () => {
     try {
       const response = await fetch(
         'https://www.rialir.com/wp-json/wp/v2/pricing',
@@ -32,7 +33,7 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    updateRate();
+    updateRates();
   }, []);
 
   return (
@@ -64,7 +65,7 @@ const HomeScreen = () => {
               </ListItem.Subtitle>
             </ListItem.Content>
             <Text style={[styles.price, {color: colors.text}]}>
-              {price.try}
+              {price.try_irt}
             </Text>
           </ListItem>
           <ListItem
@@ -82,7 +83,9 @@ const HomeScreen = () => {
                 تتر به تومان
               </ListItem.Subtitle>
             </ListItem.Content>
-            <Text style={[styles.price, {color: colors.text}]}>60,325</Text>
+            <Text style={[styles.price, {color: colors.text}]}>
+              {ccyFormat(parseInt(price.usdt_irt, 10) / 10)}
+            </Text>
           </ListItem>
           <ListItem
             bottomDivider
@@ -99,7 +102,9 @@ const HomeScreen = () => {
                 تتر به لیر ترکیه
               </ListItem.Subtitle>
             </ListItem.Content>
-            <Text style={[styles.price, {color: colors.text}]}>31.994</Text>
+            <Text style={[styles.price, {color: colors.text}]}>
+              {price.usdt_try}
+            </Text>
           </ListItem>
         </React.Fragment>
       )}

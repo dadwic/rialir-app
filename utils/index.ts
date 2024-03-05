@@ -12,20 +12,18 @@ export function persianNumber(value: string) {
   return value;
 }
 
-export function tryFormat(num: string) {
+export function tryFormat(value: string) {
   return persianNumber(
-    parseFloat(num)
+    parseFloat(value)
       .toFixed(2)
       .replace(/\d(?=(\d{3})+$)/g, '$&,'),
   );
 }
 
-export function ccyFormat(num: string) {
-  return parseInt(num)
-    .toFixed(0)
-    .replace(/\d(?=(\d{3})+$)/g, '$&,');
+export function ccyFormat(value: number) {
+  return value.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,');
 }
 
-export function numFormat(value: string) {
+export function numFormat(value: number) {
   return persianNumber(ccyFormat(value));
 }

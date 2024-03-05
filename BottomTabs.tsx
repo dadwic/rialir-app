@@ -2,23 +2,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
 import {WebView} from 'react-native-webview';
+import {Avatar, ListItem} from '@rneui/themed';
 import {useTheme} from '@react-navigation/native';
-import {
-  ActivityIndicator,
-  Text,
-  View,
-  Platform,
-  StyleSheet,
-} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
-
-const fontFamily = Platform.select({
-  ios: 'Vazirmatn',
-});
 
 const HomeScreen = () => {
   const {colors} = useTheme();
@@ -26,7 +17,7 @@ const HomeScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [price, setPrice] = useState<any>({});
 
-  const getMovies = async () => {
+  const updateRate = async () => {
     try {
       const response = await fetch(
         'https://www.rialir.com/wp-json/wp/v2/pricing',
@@ -41,37 +32,96 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    getMovies();
+    updateRate();
   }, []);
 
   return (
     <View
       style={{
-        flex: 1,
-        justifyContent: 'center',
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
-        paddingLeft: 48,
-        paddingRight: 48,
+        paddingLeft: insets.left,
+        paddingRight: insets.right,
       }}>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <Text style={styles.textStyle}>{price.try}</Text>
+        <React.Fragment>
+          <ListItem
+            topDivider
+            bottomDivider
+            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            <Avatar
+              rounded
+              title="₺"
+              titleStyle={styles.avatar}
+              containerStyle={{backgroundColor: 'grey'}}
+            />
+            <ListItem.Content>
+              <ListItem.Title style={styles.text}>TRY</ListItem.Title>
+              <ListItem.Subtitle style={styles.subtitle}>
+                لیر ترکیه به تومان
+              </ListItem.Subtitle>
+            </ListItem.Content>
+            <Text style={[styles.price, {color: colors.text}]}>
+              {price.try}
+            </Text>
+          </ListItem>
+          <ListItem
+            bottomDivider
+            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            <Avatar
+              rounded
+              title="$"
+              titleStyle={styles.avatar}
+              containerStyle={{backgroundColor: 'grey'}}
+            />
+            <ListItem.Content>
+              <ListItem.Title style={styles.text}>USDT-IRT</ListItem.Title>
+              <ListItem.Subtitle style={styles.subtitle}>
+                تتر به تومان
+              </ListItem.Subtitle>
+            </ListItem.Content>
+            <Text style={[styles.price, {color: colors.text}]}>60,325</Text>
+          </ListItem>
+          <ListItem
+            bottomDivider
+            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            <Avatar
+              rounded
+              title="₮"
+              titleStyle={styles.avatar}
+              containerStyle={{backgroundColor: 'grey'}}
+            />
+            <ListItem.Content>
+              <ListItem.Title style={styles.text}>USDT-TRY</ListItem.Title>
+              <ListItem.Subtitle style={styles.subtitle}>
+                تتر به لیر ترکیه
+              </ListItem.Subtitle>
+            </ListItem.Content>
+            <Text style={[styles.price, {color: colors.text}]}>31.994</Text>
+          </ListItem>
+        </React.Fragment>
       )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  textStyle: {
-    ...Platform.select({
-      ios: {
-        fontFamily,
-        fontWeight: 'bold',
-        color: '#fff',
-      },
-    }),
+  subtitle: {
+    fontFamily: 'Vazirmatn',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  text: {
+    fontSize: 16,
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  avatar: {
+    fontSize: 26,
   },
 });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useColorScheme} from 'react-native';
+import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   NavigationContainer,
@@ -13,7 +14,10 @@ export default function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <BottomTabs />
+        <ThemeProvider
+          theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
+          <BottomTabs />
+        </ThemeProvider>
       </NavigationContainer>
     </SafeAreaProvider>
   );

@@ -8,13 +8,15 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import moment from 'moment-jalaali';
 import {ccyFormat} from './utils';
+
+moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
   const {colors} = useTheme();
-  const insets = useSafeAreaInsets();
   const [isLoading, setLoading] = useState(true);
   const [price, setPrice] = useState<any>({});
 
@@ -37,13 +39,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <View
-      style={{
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-        paddingLeft: insets.left,
-        paddingRight: insets.right,
-      }}>
+    <View>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
@@ -51,7 +47,12 @@ const HomeScreen = () => {
           <ListItem
             topDivider
             bottomDivider
-            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            containerStyle={{
+              direction: 'rtl',
+              backgroundColor: colors.card,
+              borderTopColor: colors.border,
+              borderBottomColor: colors.border,
+            }}>
             <Avatar
               rounded
               title="₺"
@@ -59,7 +60,7 @@ const HomeScreen = () => {
               containerStyle={{backgroundColor: 'grey'}}
             />
             <ListItem.Content>
-              <ListItem.Title style={styles.text}>TRY</ListItem.Title>
+              <ListItem.Title style={styles.text}>TRY-IRT</ListItem.Title>
               <ListItem.Subtitle style={styles.subtitle}>
                 لیر ترکیه به تومان
               </ListItem.Subtitle>
@@ -70,7 +71,11 @@ const HomeScreen = () => {
           </ListItem>
           <ListItem
             bottomDivider
-            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            containerStyle={{
+              direction: 'rtl',
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            }}>
             <Avatar
               rounded
               title="$"
@@ -89,7 +94,11 @@ const HomeScreen = () => {
           </ListItem>
           <ListItem
             bottomDivider
-            containerStyle={{direction: 'rtl', backgroundColor: colors.card}}>
+            containerStyle={{
+              direction: 'rtl',
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            }}>
             <Avatar
               rounded
               title="₮"
@@ -106,6 +115,10 @@ const HomeScreen = () => {
               {price.usdt_try}
             </Text>
           </ListItem>
+          <Text style={[styles.date, {color: 'grey'}]}>
+            {'تاریخ بروزرسانی: '}
+            {moment.unix(price.time).format('jYYYY/jMM/jDD - HH:mm:ss')}
+          </Text>
         </React.Fragment>
       )}
     </View>
@@ -116,6 +129,12 @@ const styles = StyleSheet.create({
   subtitle: {
     fontFamily: 'Vazirmatn',
     fontWeight: 'bold',
+    fontSize: 16,
+  },
+  date: {
+    fontFamily: 'Vazirmatn',
+    textAlign: 'center',
+    marginTop: 8,
     fontSize: 16,
   },
   text: {
@@ -147,13 +166,13 @@ export default function BottomTabs() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerShown: false,
         tabBarActiveTintColor: '#CE0E2D',
       }}>
       <Tab.Screen
         name="Order"
         component={OrderScreen}
         options={{
+          headerShown: false,
           tabBarLabelStyle: {fontWeight: 'bold', fontSize: 12},
           tabBarLabel: 'خرید از ترکیه',
           tabBarIcon: ({size, color}) => (
@@ -165,6 +184,7 @@ export default function BottomTabs() {
         name="Home"
         component={HomeScreen}
         options={{
+          headerTitle: 'rialir.com',
           tabBarLabelStyle: {fontWeight: 'bold', fontSize: 12},
           tabBarLabel: 'قیمت لحظه ای لیر',
           tabBarIcon: ({size, color}) => (

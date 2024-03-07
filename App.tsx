@@ -7,7 +7,7 @@ import {
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import BottomTabs from './BottomTabs';
+import AppLayout from './src/AppLayout';
 
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
@@ -16,7 +16,7 @@ function App(): React.JSX.Element {
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeProvider
           theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
-          <BottomTabs />
+          <AppLayout />
         </ThemeProvider>
       </NavigationContainer>
     </SafeAreaProvider>

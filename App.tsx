@@ -1,5 +1,5 @@
 import React from 'react';
-import {useColorScheme} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
@@ -9,10 +9,10 @@ import {
 } from '@react-navigation/native';
 import BottomTabs from './BottomTabs';
 
-export default function App(): React.JSX.Element {
+function App(): React.JSX.Element {
   const scheme = useColorScheme();
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={styles.container}>
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeProvider
           theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
@@ -22,3 +22,11 @@ export default function App(): React.JSX.Element {
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default App;

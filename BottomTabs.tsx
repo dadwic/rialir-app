@@ -11,6 +11,7 @@ import {
   ScrollView,
   RefreshControl,
   ActivityIndicator,
+  View,
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -165,9 +166,10 @@ const OrderScreen = () => {
   const insets = useSafeAreaInsets();
   return (
     <WebView
-      style={{
+      containerStyle={{
         marginTop: insets.top,
       }}
+      startInLoadingState={true}
       source={{uri: 'https://www.rialir.com/'}}
     />
   );

@@ -14,13 +14,17 @@ export default function BottomTabs() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#CE0E2D',
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: 'bold',
+          fontFamily: 'Vazirmatn',
+        },
       }}>
       <Tab.Screen
         name="Order"
         component={OrderScreen}
         options={{
           headerShown: false,
-          tabBarLabelStyle: {fontWeight: 'bold', fontSize: 12},
           tabBarLabel: 'خرید از ترکیه',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="local-mall" size={size} color={color} />
@@ -33,7 +37,6 @@ export default function BottomTabs() {
         options={{
           headerTitle: 'rialir.com',
           headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
-          tabBarLabelStyle: {fontWeight: 'bold', fontSize: 12},
           tabBarLabel: 'قیمت لحظه ای لیر',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="currency-lira" size={size} color={color} />
@@ -45,7 +48,6 @@ export default function BottomTabs() {
         component={SettingsScreen}
         options={{
           headerTitle: 'تنظیمات',
-          tabBarLabelStyle: {fontWeight: 'bold', fontSize: 12},
           tabBarLabel: 'تنظیمات',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />

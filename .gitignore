@@ -66,3 +66,9 @@ yarn.lock
 
 # testing
 /coverage
+
+# env files
+.env*.local
+.env.development
+.env.production
+.env

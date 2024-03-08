@@ -34,6 +34,7 @@ export default function Home() {
 
   return (
     <ScrollView
+      style={{direction: 'rtl'}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
@@ -41,7 +42,6 @@ export default function Home() {
         topDivider
         bottomDivider
         containerStyle={{
-          direction: 'rtl',
           backgroundColor: colors.card,
           borderTopColor: colors.border,
           borderBottomColor: colors.border,
@@ -69,7 +69,6 @@ export default function Home() {
       <ListItem
         bottomDivider
         containerStyle={{
-          direction: 'rtl',
           backgroundColor: colors.card,
           borderBottomColor: colors.border,
         }}>
@@ -96,7 +95,6 @@ export default function Home() {
       <ListItem
         bottomDivider
         containerStyle={{
-          direction: 'rtl',
           backgroundColor: colors.card,
           borderBottomColor: colors.border,
         }}>

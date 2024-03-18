@@ -48,6 +48,7 @@ export default function AppLayout() {
         component={SettingsScreen}
         options={{
           headerTitle: 'تنظیمات',
+          headerTitleStyle: {fontFamily: 'Vazirmatn'},
           tabBarLabel: 'تنظیمات',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />

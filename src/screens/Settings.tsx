@@ -30,7 +30,7 @@ export default function Settings() {
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>حالت تاریک</ListItem.Title>
         </ListItem.Content>
-        <Switch value={dark} onValueChange={toggleSwitch} />
+        <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
       </ListItem>
       <ListItem
         bottomDivider
@@ -84,6 +84,9 @@ export default function Settings() {
 const styles = StyleSheet.create({
   view: {
     direction: 'rtl',
+  },
+  ltr: {
+    direction: 'ltr',
   },
   content: {
     paddingVertical: 4,

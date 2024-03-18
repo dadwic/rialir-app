@@ -28,10 +28,8 @@
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.80784313725490198" green="0.054901960784313725" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="Hcf-2X-ZhQ"/>
-                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="WNJ-A2-mEc"/>
-                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="vgC-ZR-2oj"/>
-                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="zmn-1v-1VM"/>
+                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="u7o-0l-CJx"/>
+                            <constraint firstItem="bRl-JU-d9w" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="uEx-JT-ZC0"/>
                         </constraints>
                     </view>
                 </viewController>

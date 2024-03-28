@@ -16,7 +16,7 @@ export default function AppLayout() {
         tabBarActiveTintColor: '#CE0E2D',
         tabBarLabelStyle: {
           fontSize: 12,
-          fontWeight: 'bold',
+          fontWeight: '600',
           fontFamily: 'Vazirmatn',
         },
       }}>

@@ -64,7 +64,7 @@ export default function Home() {
         </ListItem.Content>
         {price?.try_irt ? (
           <Text style={[styles.price, {color: colors.text}]}>
-            {price.try_irt}
+            {price.try_irt.sell}
           </Text>
         ) : (
           <ActivityIndicator />
@@ -90,7 +90,7 @@ export default function Home() {
         </ListItem.Content>
         {price?.usdt_irt ? (
           <Text style={[styles.price, {color: colors.text}]}>
-            {ccyFormat(parseInt(price.usdt_irt, 10) / 10)}
+            {ccyFormat(parseInt(price.usdt_irt.sell, 10) / 10)}
           </Text>
         ) : (
           <ActivityIndicator />
@@ -116,16 +116,16 @@ export default function Home() {
         </ListItem.Content>
         {price?.usdt_try ? (
           <Text style={[styles.price, {color: colors.text}]}>
-            {price.usdt_try}
+            {price.usdt_try.sell}
           </Text>
         ) : (
           <ActivityIndicator />
         )}
       </ListItem>
-      {price?.time && (
+      {price?.updatedAt && (
         <Text style={[styles.time, {color: 'grey'}]}>
           {'تاریخ بروزرسانی: '}
-          {moment.unix(price.time).format('jYYYY/jMM/jDD - HH:mm:ss')}
+          {moment(price.updatedAt).format('jD jMMMM jYYYY ساعت HH:mm')}
         </Text>
       )}
     </ScrollView>

@@ -72,3 +72,4 @@ yarn.lock
 .env.development
 .env.production
 .env
+ios/GoogleService-Info.plist

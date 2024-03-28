@@ -21,6 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
+ios/GoogleService-Info.plist
 
 # Android/IntelliJ
 #
@@ -72,4 +73,3 @@ yarn.lock
 .env.development
 .env.production
 .env
-ios/GoogleService-Info.plist

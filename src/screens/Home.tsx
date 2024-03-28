@@ -4,9 +4,10 @@ import {Avatar, ListItem} from '@rneui/themed';
 import {useTheme} from '@react-navigation/native';
 import moment from 'moment-jalaali';
 import {
-  StyleSheet,
   Text,
+  View,
   ScrollView,
+  StyleSheet,
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
@@ -63,9 +64,14 @@ export default function Home() {
           </ListItem.Subtitle>
         </ListItem.Content>
         {price?.try_irt ? (
-          <Text style={[styles.price, {color: colors.text}]}>
-            {price.try_irt.sell}
-          </Text>
+          <View style={styles.flex}>
+            <Text style={[styles.buy, {color: colors.text}]}>
+              {ccyFormat(price.try_irt.buy)}
+            </Text>
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {ccyFormat(price.try_irt.sell)}
+            </Text>
+          </View>
         ) : (
           <ActivityIndicator />
         )}
@@ -89,9 +95,14 @@ export default function Home() {
           </ListItem.Subtitle>
         </ListItem.Content>
         {price?.usdt_irt ? (
-          <Text style={[styles.price, {color: colors.text}]}>
-            {ccyFormat(parseInt(price.usdt_irt.sell, 10) / 10)}
-          </Text>
+          <View style={styles.flex}>
+            <Text style={[styles.buy, {color: colors.text}]}>
+              {ccyFormat(price.usdt_irt.buy)}
+            </Text>
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {ccyFormat(price.usdt_irt.sell)}
+            </Text>
+          </View>
         ) : (
           <ActivityIndicator />
         )}
@@ -115,9 +126,14 @@ export default function Home() {
           </ListItem.Subtitle>
         </ListItem.Content>
         {price?.usdt_try ? (
-          <Text style={[styles.price, {color: colors.text}]}>
-            {price.usdt_try.sell}
-          </Text>
+          <View style={styles.flex}>
+            <Text style={[styles.buy, {color: colors.text}]}>
+              {price.usdt_try.buy}
+            </Text>
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {price.usdt_try.sell}
+            </Text>
+          </View>
         ) : (
           <ActivityIndicator />
         )}
@@ -144,11 +160,18 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 16,
   },
+  flex: {
+    display: 'flex',
+  },
   text: {
     fontSize: 16,
   },
-  price: {
+  sell: {
     fontSize: 24,
+    fontWeight: 'bold',
+  },
+  buy: {
+    fontSize: 16,
     fontWeight: 'bold',
   },
   avatar: {

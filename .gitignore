@@ -21,7 +21,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
-ios/rialir.xcodeproj
 
 # Android/IntelliJ
 #

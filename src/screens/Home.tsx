@@ -21,7 +21,11 @@ export default function Home() {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    fetch('https://www.rialir.com/wp-json/wp/v2/pricing')
+    fetch(process.env.API_URL as string, {
+      headers: {
+        'x-api-key': process.env.API_KEY as string,
+      },
+    })
       .then(res => res.json())
       .then(data => setPrice(data))
       .catch(error => console.error(error))

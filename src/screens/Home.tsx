@@ -122,10 +122,10 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
-      {price?.updatedAt && (
+      {price?.updated_at && (
         <Text style={[styles.time, {color: 'grey'}]}>
           {'تاریخ بروزرسانی: '}
-          {moment(price.updatedAt).format('jD jMMMM jYYYY ساعت HH:mm')}
+          {moment(price.updated_at).format('jD jMMMM jYYYY ساعت HH:mm')}
         </Text>
       )}
     </ScrollView>

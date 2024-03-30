@@ -53,12 +53,11 @@ export default function Home() {
         }}>
         <Avatar
           rounded
-          title="₺"
-          titleStyle={styles.avatar}
-          containerStyle={{backgroundColor: 'grey'}}
+          containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'currency-lira', type: 'material', size: 24}}
         />
         <ListItem.Content>
-          <ListItem.Title style={styles.text}>TRY-IRT</ListItem.Title>
+          <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
           <ListItem.Subtitle style={styles.subtitle}>
             لیر ترکیه به تومان
           </ListItem.Subtitle>
@@ -86,10 +85,10 @@ export default function Home() {
           rounded
           title="$"
           titleStyle={styles.avatar}
-          containerStyle={{backgroundColor: 'grey'}}
+          containerStyle={{backgroundColor: '#424242'}}
         />
         <ListItem.Content>
-          <ListItem.Title style={styles.text}>USDT-IRT</ListItem.Title>
+          <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
           <ListItem.Subtitle style={styles.subtitle}>
             تتر به تومان
           </ListItem.Subtitle>
@@ -117,10 +116,10 @@ export default function Home() {
           rounded
           title="₮"
           titleStyle={styles.avatar}
-          containerStyle={{backgroundColor: 'grey'}}
+          containerStyle={{backgroundColor: '#424242'}}
         />
         <ListItem.Content>
-          <ListItem.Title style={styles.text}>USDT-TRY</ListItem.Title>
+          <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
           <ListItem.Subtitle style={styles.subtitle}>
             تتر به لیر ترکیه
           </ListItem.Subtitle>
@@ -138,6 +137,32 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
+      <ListItem
+        bottomDivider
+        containerStyle={{
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
+          borderBottomColor: colors.border,
+        }}>
+        <Avatar
+          rounded
+          containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'currency-lira', type: 'material', size: 24}}
+        />
+        <ListItem.Content>
+          <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
+          <ListItem.Subtitle style={styles.subtitle}>
+            لیر ترکیه به تومان
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        {price?.try_irt ? (
+          <Text style={[styles.sell, {color: colors.text}]}>
+            {ccyFormat(price.try_irt.buy)}
+          </Text>
+        ) : (
+          <ActivityIndicator />
+        )}
+      </ListItem>
       {price?.updated_at && (
         <Text style={[styles.time, {color: 'grey'}]}>
           {'تاریخ بروزرسانی: '}
@@ -149,6 +174,13 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+  text: {
+    fontFamily: 'Vazirmatn',
+    fontSize: 16,
+  },
+  title: {
+    fontSize: 16,
+  },
   subtitle: {
     fontFamily: 'Vazirmatn',
     fontWeight: 'bold',
@@ -163,9 +195,6 @@ const styles = StyleSheet.create({
   flex: {
     display: 'flex',
   },
-  text: {
-    fontSize: 16,
-  },
   sell: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -175,6 +204,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   avatar: {
-    fontSize: 26,
+    fontSize: 24,
   },
 });

@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {HeaderTitle} from '@react-navigation/elements';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import OrderScreen from './screens/Order';
 import HomeScreen from './screens/Home';
@@ -35,7 +36,11 @@ export default function AppLayout() {
         name="Home"
         component={HomeScreen}
         options={{
-          headerTitle: 'rialir.com',
+          headerTitle: props => (
+            <HeaderTitle {...props}>
+              <MaterialIcons name="lock" size={16} /> rialir.com
+            </HeaderTitle>
+          ),
           headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
           tabBarLabel: 'قیمت لحظه ای لیر',
           tabBarIcon: ({size, color}) => (

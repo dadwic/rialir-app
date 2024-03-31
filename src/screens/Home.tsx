@@ -6,6 +6,7 @@ import moment from 'moment-jalaali';
 import {
   Text,
   View,
+  Alert,
   ScrollView,
   StyleSheet,
   RefreshControl,
@@ -17,20 +18,23 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 export default function Home() {
   const {colors} = useTheme();
-  const [refreshing, setRefreshing] = useState(false);
   const [price, setPrice] = useState<any>({});
+  const [refreshing, setRefreshing] = useState(false);
 
-  const onRefresh = useCallback(() => {
+  const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    fetch(process.env.API_URL as string, {
+    const res = await fetch(process.env.API_URL as string, {
       headers: {
         'x-api-key': process.env.API_KEY as string,
       },
-    })
-      .then(res => res.json())
-      .then(data => setPrice(data))
-      .catch(error => console.error(error))
-      .finally(() => setRefreshing(false));
+    });
+    const data = await res.json();
+    if (res.ok) {
+      setPrice(data);
+    } else {
+      Alert.alert(data?.message);
+    }
+    setRefreshing(false);
   }, []);
 
   useEffect(() => {

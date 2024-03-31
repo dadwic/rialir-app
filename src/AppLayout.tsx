@@ -1,5 +1,7 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
+import {Icon, Text} from '@rneui/themed';
 import {HeaderTitle} from '@react-navigation/elements';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -38,7 +40,8 @@ export default function AppLayout() {
         options={{
           headerTitle: props => (
             <HeaderTitle {...props}>
-              <MaterialIcons name="lock" size={16} /> rialir.com
+              <Icon name="lock" size={16} style={{marginRight: 4}} />
+              <Text>rialir.com</Text>
             </HeaderTitle>
           ),
           headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},

@@ -46,11 +46,14 @@ export default function Home() {
       <ListItem
         topDivider
         bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Avatar
           rounded
           containerStyle={{backgroundColor: '#424242'}}
@@ -77,10 +80,13 @@ export default function Home() {
       </ListItem>
       <ListItem
         bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Avatar
           rounded
           containerStyle={{backgroundColor: '#424242'}}
@@ -107,10 +113,13 @@ export default function Home() {
       </ListItem>
       <ListItem
         bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Avatar
           rounded
           icon={{name: 'title', type: 'material', size: 24}}
@@ -135,58 +144,58 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
-      <ListItem
-        bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
-        <Avatar
-          rounded
-          containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
-            بیت‌کوین به تتر
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        {price?.try_irt ? (
+      {price?.btc_usdt && (
+        <ListItem
+          bottomDivider
+          containerStyle={[
+            styles.listItem,
+            {
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            },
+          ]}>
+          <Avatar
+            rounded
+            containerStyle={{backgroundColor: '#424242'}}
+            icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
+          />
+          <ListItem.Content>
+            <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
+            <ListItem.Subtitle style={styles.subtitle}>
+              بیت‌کوین به تتر
+            </ListItem.Subtitle>
+          </ListItem.Content>
           <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt.buy)}
+            {ccyFormat(price.btc_usdt)}
           </Text>
-        ) : (
-          <ActivityIndicator />
-        )}
-      </ListItem>
-      <ListItem
-        bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
-        <Avatar
-          rounded
-          containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'currency-lira', type: 'material', size: 24}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
-            لیر ترکیه به تومان
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        {price?.try_irt ? (
+        </ListItem>
+      )}
+      {price?.try_irt?.shop && (
+        <ListItem
+          bottomDivider
+          containerStyle={[
+            styles.listItem,
+            {
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            },
+          ]}>
+          <Avatar
+            rounded
+            containerStyle={{backgroundColor: '#424242'}}
+            icon={{name: 'currency-lira', type: 'material', size: 24}}
+          />
+          <ListItem.Content>
+            <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
+            <ListItem.Subtitle style={styles.subtitle}>
+              لیر ترکیه به تومان
+            </ListItem.Subtitle>
+          </ListItem.Content>
           <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt.buy)}
+            {ccyFormat(price.try_irt.shop)}
           </Text>
-        ) : (
-          <ActivityIndicator />
-        )}
-      </ListItem>
+        </ListItem>
+      )}
       {price?.updated_at && (
         <Text style={[styles.time, {color: 'grey'}]}>
           {'تاریخ بروزرسانی: '}
@@ -198,6 +207,9 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+  listItem: {
+    height: 77,
+  },
   text: {
     fontFamily: 'Vazirmatn',
     fontSize: 16,

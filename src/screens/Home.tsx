@@ -83,9 +83,8 @@ export default function Home() {
         }}>
         <Avatar
           rounded
-          title="$"
-          titleStyle={styles.avatar}
           containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'attach-money', type: 'material', size: 24}}
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
@@ -114,8 +113,7 @@ export default function Home() {
         }}>
         <Avatar
           rounded
-          title="₮"
-          titleStyle={styles.avatar}
+          icon={{name: 'title', type: 'material', size: 24}}
           containerStyle={{backgroundColor: '#424242'}}
         />
         <ListItem.Content>
@@ -133,6 +131,32 @@ export default function Home() {
               {price.usdt_try.sell}
             </Text>
           </View>
+        ) : (
+          <ActivityIndicator />
+        )}
+      </ListItem>
+      <ListItem
+        bottomDivider
+        containerStyle={{
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
+          borderBottomColor: colors.border,
+        }}>
+        <Avatar
+          rounded
+          containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
+        />
+        <ListItem.Content>
+          <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
+          <ListItem.Subtitle style={styles.subtitle}>
+            بیت‌کوین به تتر
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        {price?.try_irt ? (
+          <Text style={[styles.sell, {color: colors.text}]}>
+            {ccyFormat(price.try_irt.buy)}
+          </Text>
         ) : (
           <ActivityIndicator />
         )}

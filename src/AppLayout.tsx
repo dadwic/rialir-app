@@ -40,7 +40,12 @@ export default function AppLayout() {
         options={{
           headerTitle: props => (
             <HeaderTitle {...props}>
-              <Icon name="lock" size={16} style={{marginRight: 4}} />
+              <Icon
+                name="lock"
+                size={16}
+                style={{marginRight: 4}}
+                containerStyle={{marginBottom: -1}}
+              />
               <Text>rialir.com</Text>
             </HeaderTitle>
           ),

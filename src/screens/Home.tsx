@@ -1,7 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
-import {Avatar, ListItem} from '@rneui/themed';
 import {useTheme} from '@react-navigation/native';
+import {Avatar, ListItem} from '@rneui/themed';
+import debounce from 'lodash.debounce';
 import moment from 'moment-jalaali';
 import {
   Text,
@@ -45,7 +46,10 @@ export default function Home() {
     <ScrollView
       style={{direction: 'rtl'}}
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={debounce(onRefresh, 2000)}
+        />
       }>
       <ListItem
         topDivider

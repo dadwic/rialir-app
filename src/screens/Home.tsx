@@ -89,8 +89,9 @@ export default function Home() {
         ]}>
         <Avatar
           rounded
+          title="$"
+          titleStyle={{fontSize: 24}}
           containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'attach-money', type: 'material', size: 24}}
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>

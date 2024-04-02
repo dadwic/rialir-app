@@ -11,7 +11,6 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
-  ActivityIndicator,
 } from 'react-native';
 import {ccyFormat} from '../utils';
 
@@ -73,18 +72,14 @@ export default function Home() {
             لیر ترکیه به تومان
           </ListItem.Subtitle>
         </ListItem.Content>
-        {price?.try_irt ? (
-          <View style={styles.flex}>
-            <Text style={[styles.buy, {color: colors.text}]}>
-              {ccyFormat(price.try_irt.buy)}
-            </Text>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price.try_irt.sell)}
-            </Text>
-          </View>
-        ) : (
-          <ActivityIndicator />
-        )}
+        <View style={styles.flex}>
+          <Text style={[styles.buy, {color: colors.text}]}>
+            {ccyFormat(price?.try_irt?.buy)}
+          </Text>
+          <Text style={[styles.sell, {color: colors.text}]}>
+            {ccyFormat(price?.try_irt?.sell)}
+          </Text>
+        </View>
       </ListItem>
       <ListItem
         bottomDivider
@@ -107,18 +102,14 @@ export default function Home() {
             تتر به تومان
           </ListItem.Subtitle>
         </ListItem.Content>
-        {price?.usdt_irt ? (
-          <View style={styles.flex}>
-            <Text style={[styles.buy, {color: colors.text}]}>
-              {ccyFormat(price.usdt_irt.buy)}
-            </Text>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price.usdt_irt.sell)}
-            </Text>
-          </View>
-        ) : (
-          <ActivityIndicator />
-        )}
+        <View style={styles.flex}>
+          <Text style={[styles.buy, {color: colors.text}]}>
+            {ccyFormat(price?.usdt_irt?.buy)}
+          </Text>
+          <Text style={[styles.sell, {color: colors.text}]}>
+            {ccyFormat(price?.usdt_irt?.sell)}
+          </Text>
+        </View>
       </ListItem>
       <ListItem
         bottomDivider
@@ -140,18 +131,14 @@ export default function Home() {
             تتر به لیر ترکیه
           </ListItem.Subtitle>
         </ListItem.Content>
-        {price?.usdt_try ? (
-          <View style={styles.flex}>
-            <Text style={[styles.buy, {color: colors.text}]}>
-              {price.usdt_try.buy}
-            </Text>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {price.usdt_try.sell}
-            </Text>
-          </View>
-        ) : (
-          <ActivityIndicator />
-        )}
+        <View style={styles.flex}>
+          <Text style={[styles.buy, {color: colors.text}]}>
+            {price?.usdt_try?.buy}
+          </Text>
+          <Text style={[styles.sell, {color: colors.text}]}>
+            {price?.usdt_try?.sell}
+          </Text>
+        </View>
       </ListItem>
       <ListItem
         bottomDivider

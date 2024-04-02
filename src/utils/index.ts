@@ -20,7 +20,10 @@ export function tryFormat(value: string) {
   );
 }
 
-export function ccyFormat(value: number) {
+export function ccyFormat(value: any) {
+  if (!value) {
+    return '-';
+  }
   return value.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,');
 }
 

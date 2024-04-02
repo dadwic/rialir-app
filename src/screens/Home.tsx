@@ -153,58 +153,54 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
-      {price?.btc_usdt && (
-        <ListItem
-          bottomDivider
-          containerStyle={[
-            styles.listItem,
-            {
-              backgroundColor: colors.card,
-              borderBottomColor: colors.border,
-            },
-          ]}>
-          <Avatar
-            rounded
-            containerStyle={{backgroundColor: '#424242'}}
-            icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
-          />
-          <ListItem.Content>
-            <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-            <ListItem.Subtitle style={styles.subtitle}>
-              بیت‌کوین به تتر
-            </ListItem.Subtitle>
-          </ListItem.Content>
-          <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.btc_usdt)}
-          </Text>
-        </ListItem>
-      )}
-      {price?.try_irt?.shop && (
-        <ListItem
-          bottomDivider
-          containerStyle={[
-            styles.listItem,
-            {
-              backgroundColor: colors.card,
-              borderBottomColor: colors.border,
-            },
-          ]}>
-          <Avatar
-            rounded
-            containerStyle={{backgroundColor: '#424242'}}
-            icon={{name: 'currency-lira', type: 'material', size: 24}}
-          />
-          <ListItem.Content>
-            <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
-            <ListItem.Subtitle style={styles.subtitle}>
-              لیر ترکیه به تومان
-            </ListItem.Subtitle>
-          </ListItem.Content>
-          <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt.shop)}
-          </Text>
-        </ListItem>
-      )}
+      <ListItem
+        bottomDivider
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderBottomColor: colors.border,
+          },
+        ]}>
+        <Avatar
+          rounded
+          containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
+        />
+        <ListItem.Content>
+          <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
+          <ListItem.Subtitle style={styles.subtitle}>
+            بیت‌کوین به تتر
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        <Text style={[styles.sell, {color: colors.text}]}>
+          {ccyFormat(price?.btc_usdt)}
+        </Text>
+      </ListItem>
+      <ListItem
+        bottomDivider
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderBottomColor: colors.border,
+          },
+        ]}>
+        <Avatar
+          rounded
+          containerStyle={{backgroundColor: '#424242'}}
+          icon={{name: 'currency-lira', type: 'material', size: 24}}
+        />
+        <ListItem.Content>
+          <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
+          <ListItem.Subtitle style={styles.subtitle}>
+            لیر ترکیه به تومان
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        <Text style={[styles.sell, {color: colors.text}]}>
+          {ccyFormat(price?.try_irt?.shop)}
+        </Text>
+      </ListItem>
       {price?.updated_at && (
         <Text style={[styles.time, {color: 'grey'}]}>
           {'تاریخ بروزرسانی: '}

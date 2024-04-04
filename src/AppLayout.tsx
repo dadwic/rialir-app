@@ -30,7 +30,7 @@ export default function AppLayout() {
           headerShown: false,
           tabBarLabel: 'خرید از ترکیه',
           tabBarIcon: ({size, color}) => (
-            <MaterialIcons name="local-mall" size={size} color={color} />
+            <MaterialIcons name="shopping-cart" size={size} color={color} />
           ),
         }}
       />

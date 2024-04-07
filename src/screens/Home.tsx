@@ -14,9 +14,10 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {ccyFormat} from '../utils';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
+
+const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
   const {colors} = useTheme();
@@ -82,10 +83,10 @@ export default function Home() {
           {price?.try_irt ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
-                {ccyFormat(price.try_irt.buy)}
+                {ccyFormat(price.try_irt?.buy)}
               </Text>
               <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price.try_irt.sell)}
+                {ccyFormat(price.try_irt?.sell)}
               </Text>
             </>
           ) : (
@@ -118,10 +119,10 @@ export default function Home() {
           {price?.usdt_irt ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
-                {ccyFormat(price.usdt_irt.buy)}
+                {ccyFormat(price.usdt_irt?.buy)}
               </Text>
               <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price.usdt_irt.sell)}
+                {ccyFormat(price.usdt_irt?.sell)}
               </Text>
             </>
           ) : (
@@ -154,10 +155,10 @@ export default function Home() {
           {price?.usdt_try ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
-                {price.usdt_try.buy}
+                {price.usdt_try?.buy}
               </Text>
               <Text style={[styles.sell, {color: colors.text}]}>
-                {price.usdt_try.sell}
+                {price.usdt_try?.sell}
               </Text>
             </>
           ) : (

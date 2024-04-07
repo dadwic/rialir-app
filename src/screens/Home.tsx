@@ -122,7 +122,8 @@ export default function Home() {
         ]}>
         <Avatar
           rounded
-          icon={{name: 'title', type: 'material', size: 24}}
+          title="$"
+          titleStyle={{fontSize: 24}}
           containerStyle={{backgroundColor: '#424242'}}
         />
         <ListItem.Content>

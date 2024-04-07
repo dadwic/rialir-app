@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
@@ -22,7 +23,7 @@ export default function Home() {
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
-  const onRefresh = useCallback(async () => {
+  const fetchData = async () => {
     setRefreshing(true);
     const res = await fetch(process.env.API_URL as string, {
       headers: {
@@ -36,20 +37,24 @@ export default function Home() {
       Alert.alert(data?.message);
     }
     setRefreshing(false);
-  }, []);
+  };
+
+  const onRefresh = useCallback(
+    throttle(fetchData, 60000, {
+      trailing: false,
+    }),
+    [],
+  );
 
   useEffect(() => {
     onRefresh();
-  }, [onRefresh]);
+  }, []);
 
   return (
     <ScrollView
       style={{direction: 'rtl'}}
       refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={throttle(onRefresh, 300000, {trailing: false})}
-        />
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
       <ListItem
         topDivider

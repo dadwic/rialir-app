@@ -73,7 +73,7 @@ export default function Home() {
             لیر ترکیه به تومان
           </ListItem.Subtitle>
         </ListItem.Content>
-        <View style={styles.flex}>
+        <View>
           {price?.try_irt ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
@@ -109,7 +109,7 @@ export default function Home() {
             تتر به تومان
           </ListItem.Subtitle>
         </ListItem.Content>
-        <View style={styles.flex}>
+        <View>
           {price?.usdt_irt ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
@@ -145,7 +145,7 @@ export default function Home() {
             تتر به لیر ترکیه
           </ListItem.Subtitle>
         </ListItem.Content>
-        <View style={styles.flex}>
+        <View>
           {price?.usdt_try ? (
             <>
               <Text style={[styles.buy, {color: colors.text}]}>
@@ -248,9 +248,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 16,
   },
-  flex: {
-    display: 'flex',
-  },
   sell: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -258,8 +255,5 @@ const styles = StyleSheet.create({
   buy: {
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  avatar: {
-    fontSize: 24,
   },
 });

@@ -2,7 +2,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
 import {Avatar, ListItem} from '@rneui/themed';
-import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 import moment from 'moment-jalaali';
 import {
   Text,
@@ -48,7 +48,7 @@ export default function Home() {
       refreshControl={
         <RefreshControl
           refreshing={refreshing}
-          onRefresh={debounce(onRefresh, 2000)}
+          onRefresh={throttle(onRefresh, 300000, {trailing: false})}
         />
       }>
       <ListItem

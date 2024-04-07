@@ -4,8 +4,8 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:www.rialir.com</string>
-		<string>webcredentials:www.rialir.com</string>
+		<string>applinks:*.rialir.com</string>
+		<string>webcredentials:*.rialir.com</string>
 	</array>
 </dict>
 </plist>

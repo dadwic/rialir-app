@@ -255,7 +255,7 @@ export default function Home() {
       </ListItem>
       {price?.updated_at && (
         <Text style={[styles.time, {color: 'grey'}]}>
-          {'تاریخ بروزرسانی: '}
+          {'تاریخ به‌روزرسانی: '}
           {moment(price.updated_at).format('jD jMMMM jYYYY ساعت HH:mm')}
         </Text>
       )}

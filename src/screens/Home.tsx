@@ -45,6 +45,11 @@ export default function Home() {
         if (data.minAppVersion === getVersion()) {
           Alert.alert(data?.appUpdateTitle, data?.appUpdateMessage, [
             {
+              text: data?.appUpdateCancel,
+              style: 'cancel',
+            },
+            {
+              isPreferred: true,
               text: data?.appUpdateButton,
               onPress: () =>
                 handlePress(

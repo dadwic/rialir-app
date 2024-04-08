@@ -41,24 +41,28 @@ export default function Home() {
     const data = await res.json();
     if (res.ok) {
       setPrice(data);
-      if (data?.minAppVersion) {
-        if (data.minAppVersion === getVersion()) {
-          Alert.alert(data?.appUpdateTitle, data?.appUpdateMessage, [
-            {
-              text: data?.appUpdateCancel,
-              style: 'cancel',
-            },
-            {
-              isPreferred: true,
-              text: data?.appUpdateButton,
-              onPress: () =>
-                handlePress(
-                  Platform.OS === 'ios'
-                    ? data?.iosAppLink
-                    : data?.androidAppLink,
-                ),
-            },
-          ]);
+      if (data?.appUpdate) {
+        if (data.appUpdate?.minAppVersion !== getVersion()) {
+          Alert.alert(
+            data.appUpdate?.alertTitle,
+            data.appUpdate?.alertMessage,
+            [
+              {
+                style: 'cancel',
+                text: data.appUpdate?.alertCancel,
+              },
+              {
+                isPreferred: true,
+                text: data.appUpdate?.alertButton,
+                onPress: () =>
+                  handlePress(
+                    Platform.OS === 'ios'
+                      ? data.appUpdate?.iosAppLink
+                      : data.appUpdate?.androidAppLink,
+                  ),
+              },
+            ],
+          );
         }
       }
     } else {

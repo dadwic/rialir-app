@@ -23,7 +23,7 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
-  const {colors} = useTheme();
+  const {colors, dark} = useTheme();
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
@@ -254,7 +254,7 @@ export default function Home() {
         )}
       </ListItem>
       {price?.updated_at && (
-        <Text style={[styles.time, {color: 'grey'}]}>
+        <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
           {'آخرین به‌روزرسانی: '}
           {moment(price.updated_at).format('jD jMMMM jYYYY ساعت HH:mm')}
         </Text>

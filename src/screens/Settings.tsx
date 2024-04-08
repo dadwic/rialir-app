@@ -74,7 +74,7 @@ export default function Settings() {
         </ListItem.Content>
         <Icon name="chevron-left" />
       </ListItem>
-      <Text style={[styles.version, {color: 'grey'}]}>
+      <Text style={[styles.version, {color: dark ? 'grey' : '#424242'}]}>
         {'🚀'} نسخه {getVersion()}
       </Text>
     </View>

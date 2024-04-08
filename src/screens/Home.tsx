@@ -240,14 +240,16 @@ export default function Home() {
           icon={{name: 'currency-lira', type: 'material', size: 24}}
         />
         <ListItem.Content>
-          <ListItem.Title style={styles.text}>خرید کالا</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            خرید کالا از ترکیه
+          </ListItem.Title>
           <ListItem.Subtitle style={styles.subtitle}>
             لیر ترکیه به تومان
           </ListItem.Subtitle>
         </ListItem.Content>
         {price?.try_irt ? (
           <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt.shop)}
+            {ccyFormat(price.try_irt?.shop)}
           </Text>
         ) : (
           <ActivityIndicator />

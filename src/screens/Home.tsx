@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
+import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {Avatar, ListItem} from '@rneui/themed';
 import throttle from 'lodash.throttle';
@@ -9,6 +10,8 @@ import {
   Text,
   View,
   Alert,
+  Linking,
+  Platform,
   ScrollView,
   StyleSheet,
   RefreshControl,
@@ -24,6 +27,10 @@ export default function Home() {
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
+  const handlePress = async (url: string) => {
+    await Linking.openURL(url);
+  };
+
   const fetchData = async () => {
     setRefreshing(true);
     const res = await fetch(process.env.API_URL as string, {
@@ -34,6 +41,21 @@ export default function Home() {
     const data = await res.json();
     if (res.ok) {
       setPrice(data);
+      if (data?.minAppVersion) {
+        if (data.minAppVersion === getVersion()) {
+          Alert.alert(data?.appUpdateTitle, data?.appUpdateMessage, [
+            {
+              text: data?.appUpdateButton,
+              onPress: () =>
+                handlePress(
+                  Platform.OS === 'ios'
+                    ? data?.iosAppLink
+                    : data?.androidAppLink,
+                ),
+            },
+          ]);
+        }
+      }
     } else {
       Alert.alert(data?.message);
     }

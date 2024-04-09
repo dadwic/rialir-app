@@ -258,7 +258,7 @@ export default function Home() {
       {price?.updated_at && (
         <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
           {'آخرین به‌روزرسانی: '}
-          {moment(price.updated_at).format('jD jMMMM jYYYY ساعت HH:mm')}
+          {moment(price.updated_at).format('jD jMMMM jYYYY ساعت H:mm')}
         </Text>
       )}
     </ScrollView>

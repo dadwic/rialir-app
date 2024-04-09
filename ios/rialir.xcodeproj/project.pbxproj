@@ -95,13 +95,13 @@
 			isa = PBXGroup;
 			children = (
 				801602DC2BB726950056607C /* rialir.entitlements */,
-				804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */,
 				807D049D2B94939C004E0796 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				80F8F1132BB5F0F40082DAEE /* GoogleService-Info.plist */,
+				804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);

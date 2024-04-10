@@ -1,3 +1,6 @@
 {
-  "darkMode": "Dark mode"
+  "darkMode": "Dark mode",
+  "home": {
+    "try_irt": "Turkish Lira to Toman"
+  }
 }

@@ -9,8 +9,6 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const isEn = i18n.language === 'en';
-  const direction = isEn ? 'ltr' : 'rtl';
 
   const toggleSwitch = () => {
     Appearance.setColorScheme(dark ? 'light' : 'dark');
@@ -21,7 +19,7 @@ export default function Settings() {
   };
 
   return (
-    <View style={{direction}}>
+    <View style={{direction: i18n.dir()}}>
       <ListItem
         topDivider
         bottomDivider

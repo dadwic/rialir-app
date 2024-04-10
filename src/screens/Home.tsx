@@ -4,6 +4,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {Avatar, ListItem} from '@rneui/themed';
+import {useTranslation} from 'react-i18next';
 import throttle from 'lodash.throttle';
 import moment from 'moment-jalaali';
 import {
@@ -24,6 +25,7 @@ const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
   const {colors, dark} = useTheme();
+  const {t, i18n} = useTranslation();
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
@@ -84,7 +86,7 @@ export default function Home() {
 
   return (
     <ScrollView
-      style={{direction: 'rtl'}}
+      style={{direction: i18n.dir()}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
@@ -108,7 +110,7 @@ export default function Home() {
           <ListItem.Content>
             <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
             <ListItem.Subtitle style={styles.subtitle}>
-              لیر ترکیه به تومان
+              {t('home.try_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
           <View>

@@ -33,6 +33,20 @@ export default function Settings() {
         <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
       </ListItem>
       <ListItem
+        topDivider
+        bottomDivider
+        containerStyle={{
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
+          borderBottomColor: colors.border,
+        }}>
+        <Icon name="translate" />
+        <ListItem.Content style={styles.content}>
+          <ListItem.Title style={styles.text}>زبان</ListItem.Title>
+        </ListItem.Content>
+        <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
+      </ListItem>
+      <ListItem
         bottomDivider
         onPress={handlePress('https://www.rialir.com/')}
         containerStyle={{

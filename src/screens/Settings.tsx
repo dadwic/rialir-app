@@ -1,11 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
-import {getVersion} from 'react-native-device-info';
+import {useTranslation} from 'react-i18next';
 import {useTheme} from '@react-navigation/native';
+import {getVersion} from 'react-native-device-info';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 
 export default function Settings() {
+  const {i18n} = useTranslation();
   const {colors, dark} = useTheme();
 
   const toggleSwitch = () => {
@@ -44,7 +46,17 @@ export default function Settings() {
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>زبان</ListItem.Title>
         </ListItem.Content>
-        <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
+        <ListItem.ButtonGroup
+          buttons={['English', 'فارسی']}
+          selectedIndex={+(i18n.language === 'en')}
+          onPress={index => i18n.changeLanguage(index === 0 ? 'en' : 'fa')}
+          selectedButtonStyle={{
+            backgroundColor: colors.card,
+          }}
+          selectedTextStyle={{
+            color: colors.text,
+          }}
+        />
       </ListItem>
       <ListItem
         bottomDivider

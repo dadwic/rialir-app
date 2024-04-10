@@ -7,8 +7,10 @@ import {getVersion} from 'react-native-device-info';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 
 export default function Settings() {
-  const {i18n} = useTranslation();
   const {colors, dark} = useTheme();
+  const {t, i18n} = useTranslation();
+  const isEn = i18n.language === 'en';
+  const direction = isEn ? 'ltr' : 'rtl';
 
   const toggleSwitch = () => {
     Appearance.setColorScheme(dark ? 'light' : 'dark');
@@ -19,7 +21,7 @@ export default function Settings() {
   };
 
   return (
-    <View style={styles.view}>
+    <View style={{direction}}>
       <ListItem
         topDivider
         bottomDivider
@@ -30,7 +32,7 @@ export default function Settings() {
         }}>
         <Icon name="dark-mode" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>حالت تاریک</ListItem.Title>
+          <ListItem.Title style={styles.text}>{t('darkMode')}</ListItem.Title>
         </ListItem.Content>
         <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
       </ListItem>
@@ -108,9 +110,6 @@ export default function Settings() {
 }
 
 const styles = StyleSheet.create({
-  view: {
-    direction: 'rtl',
-  },
   ltr: {
     direction: 'ltr',
   },

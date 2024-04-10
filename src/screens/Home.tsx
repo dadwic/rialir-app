@@ -88,79 +88,71 @@ export default function Home() {
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
-      <ListItem
-        topDivider
-        bottomDivider
-        containerStyle={[
-          styles.listItem,
-          {
-            backgroundColor: colors.card,
-            borderTopColor: colors.border,
-            borderBottomColor: colors.border,
-          },
-        ]}>
-        <Avatar
-          rounded
-          containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'currency-lira', type: 'material', size: 24}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
-            لیر ترکیه به تومان
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        <View>
-          {price?.try_irt ? (
-            <>
-              <Text style={[styles.buy, {color: colors.text}]}>
-                {ccyFormat(price.try_irt?.buy)}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price.try_irt?.sell)}
-              </Text>
-            </>
-          ) : (
-            <ActivityIndicator />
-          )}
-        </View>
-      </ListItem>
-      <ListItem
-        bottomDivider
-        containerStyle={[
-          styles.listItem,
-          {
-            backgroundColor: colors.card,
-            borderBottomColor: colors.border,
-          },
-        ]}>
-        <Avatar
-          rounded
-          title="$"
-          titleStyle={{fontSize: 24}}
-          containerStyle={{backgroundColor: '#424242'}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
-            تتر به تومان
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        <View>
-          {price?.usdt_irt ? (
-            <>
-              <Text style={[styles.buy, {color: colors.text}]}>
-                {ccyFormat(price.usdt_irt?.buy)}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price.usdt_irt?.sell)}
-              </Text>
-            </>
-          ) : (
-            <ActivityIndicator />
-          )}
-        </View>
-      </ListItem>
+      {price?.try_irt && (
+        <ListItem
+          topDivider
+          bottomDivider
+          containerStyle={[
+            styles.listItem,
+            {
+              backgroundColor: colors.card,
+              borderTopColor: colors.border,
+              borderBottomColor: colors.border,
+            },
+          ]}>
+          <Avatar
+            rounded
+            containerStyle={{backgroundColor: '#424242'}}
+            icon={{name: 'currency-lira', type: 'material', size: 24}}
+          />
+          <ListItem.Content>
+            <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
+            <ListItem.Subtitle style={styles.subtitle}>
+              لیر ترکیه به تومان
+            </ListItem.Subtitle>
+          </ListItem.Content>
+          <View>
+            <Text style={[styles.buy, {color: colors.text}]}>
+              {ccyFormat(price.try_irt?.buy)}
+            </Text>
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {ccyFormat(price.try_irt?.sell)}
+            </Text>
+          </View>
+        </ListItem>
+      )}
+      {price?.usdt_irt && (
+        <ListItem
+          bottomDivider
+          containerStyle={[
+            styles.listItem,
+            {
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            },
+          ]}>
+          <Avatar
+            rounded
+            title="$"
+            titleStyle={{fontSize: 24}}
+            containerStyle={{backgroundColor: '#424242'}}
+          />
+          <ListItem.Content>
+            <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
+            <ListItem.Subtitle style={styles.subtitle}>
+              تتر به تومان
+            </ListItem.Subtitle>
+          </ListItem.Content>
+          <View>
+            <Text style={[styles.buy, {color: colors.text}]}>
+              {ccyFormat(price.usdt_irt?.buy)}
+            </Text>
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {ccyFormat(price.usdt_irt?.sell)}
+            </Text>
+          </View>
+        </ListItem>
+      )}
       <ListItem
         bottomDivider
         containerStyle={[
@@ -225,36 +217,34 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
-      <ListItem
-        bottomDivider
-        containerStyle={[
-          styles.listItem,
-          {
-            backgroundColor: colors.card,
-            borderBottomColor: colors.border,
-          },
-        ]}>
-        <Avatar
-          rounded
-          containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'currency-lira', type: 'material', size: 24}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.text}>
-            خرید کالا از ترکیه
-          </ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
-            لیر ترکیه به تومان
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        {price?.try_irt ? (
+      {price?.try_irt && (
+        <ListItem
+          bottomDivider
+          containerStyle={[
+            styles.listItem,
+            {
+              backgroundColor: colors.card,
+              borderBottomColor: colors.border,
+            },
+          ]}>
+          <Avatar
+            rounded
+            containerStyle={{backgroundColor: '#424242'}}
+            icon={{name: 'currency-lira', type: 'material', size: 24}}
+          />
+          <ListItem.Content>
+            <ListItem.Title style={styles.text}>
+              خرید کالا از ترکیه
+            </ListItem.Title>
+            <ListItem.Subtitle style={styles.subtitle}>
+              لیر ترکیه به تومان
+            </ListItem.Subtitle>
+          </ListItem.Content>
           <Text style={[styles.sell, {color: colors.text}]}>
             {ccyFormat(price.try_irt?.shop)}
           </Text>
-        ) : (
-          <ActivityIndicator />
-        )}
-      </ListItem>
+        </ListItem>
+      )}
       {price?.updated_at && (
         <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
           {'آخرین به‌روزرسانی: '}

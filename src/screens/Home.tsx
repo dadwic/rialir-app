@@ -7,6 +7,7 @@ import {Avatar, ListItem} from '@rneui/themed';
 import {useTranslation} from 'react-i18next';
 import throttle from 'lodash.throttle';
 import moment from 'moment-jalaali';
+import dayjs from 'dayjs';
 import {
   Text,
   View,
@@ -24,14 +25,10 @@ const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const direction = i18n.dir();
+  // const direction = i18n.dir();
   const isEn = i18n.language === 'en';
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
-  moment.loadPersian({
-    usePersianDigits: !isEn,
-    dialect: 'persian-modern',
-  });
 
   const handlePress = async (url: string) => {
     await Linking.openURL(url);
@@ -254,11 +251,9 @@ export default function Home() {
       {price?.updated_at && (
         <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
           {t('home.lastUpdate')}
-          {moment(price.updated_at).format(
-            direction === 'ltr' ? 'YYYY-M-D' : 'jD jMMMM jYYYY',
-          ) +
-            t('home.hour') +
-            moment(price.updated_at).format('H:mm')}
+          {isEn
+            ? dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')
+            : moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
         </Text>
       )}
     </ScrollView>

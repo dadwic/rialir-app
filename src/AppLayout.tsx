@@ -54,7 +54,7 @@ export default function AppLayout() {
           tabBarLabel: t('home.title'),
           headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
           tabBarIcon: ({size, color}) => (
-            <MaterialIcons name="currency-lira" size={size} color={color} />
+            <MaterialIcons name="currency-exchange" size={size} color={color} />
           ),
         }}
       />

@@ -229,7 +229,7 @@ export default function Home() {
           <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
           <ListItem.Subtitle
             style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-            بیت‌کوین به تتر
+            {t('home.btc_usdt')}
           </ListItem.Subtitle>
         </ListItem.Content>
         {price?.btc_usdt ? (

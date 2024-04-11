@@ -9,10 +9,11 @@
     "version": "Version"
   },
   "home": {
-    "title": "Exchange Rate",
-    "usdt_try": "Tether to Turkish lira",
+    "title": "Exchange Rates",
     "try_irt": "Turkish lira to Toman",
     "usdt_irt": "Tether to Toman",
+    "usdt_try": "Tether to Turkish lira",
+    "btc_usdt": "Bitcoin to Tether",
     "lastUpdate": "Last Update: "
   }
 }

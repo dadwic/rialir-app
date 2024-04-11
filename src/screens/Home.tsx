@@ -25,10 +25,10 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
+  const fontFamily = 'Vazirmatn';
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  // const direction = i18n.dir();
-  const isEn = i18n.language === 'en';
+  const isRtl = i18n.dir() === 'rtl';
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
@@ -112,7 +112,7 @@ export default function Home() {
           />
           <ListItem.Content>
             <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
-            <ListItem.Subtitle style={styles.subtitle}>
+            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
               {t('home.try_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
@@ -144,7 +144,7 @@ export default function Home() {
           />
           <ListItem.Content>
             <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
-            <ListItem.Subtitle style={styles.subtitle}>
+            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
               {t('home.usdt_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
@@ -175,7 +175,7 @@ export default function Home() {
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
+          <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
             {t('home.usdt_try')}
           </ListItem.Subtitle>
         </ListItem.Content>
@@ -210,7 +210,7 @@ export default function Home() {
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-          <ListItem.Subtitle style={styles.subtitle}>
+          <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
             بیت‌کوین به تتر
           </ListItem.Subtitle>
         </ListItem.Content>
@@ -238,10 +238,10 @@ export default function Home() {
             icon={{name: 'currency-lira', type: 'material', size: 24}}
           />
           <ListItem.Content>
-            <ListItem.Title style={styles.text}>
+            <ListItem.Title style={[styles.text, isRtl && {fontFamily}]}>
               خرید کالا از ترکیه
             </ListItem.Title>
-            <ListItem.Subtitle style={styles.subtitle}>
+            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
               لیر ترکیه به تومان
             </ListItem.Subtitle>
           </ListItem.Content>
@@ -251,11 +251,16 @@ export default function Home() {
         </ListItem>
       )}
       {price?.updated_at && (
-        <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
+        <Text
+          style={[
+            styles.time,
+            isRtl && {fontFamily},
+            {color: dark ? 'grey' : '#424242'},
+          ]}>
           {t('home.lastUpdate')}
-          {isEn
-            ? dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')
-            : moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+          {isRtl
+            ? moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')
+            : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
         </Text>
       )}
     </ScrollView>
@@ -264,22 +269,19 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   listItem: {
-    height: 77,
+    height: 80,
   },
   text: {
-    fontFamily: 'Vazirmatn',
     fontSize: 16,
   },
   title: {
     fontSize: 16,
   },
   subtitle: {
-    fontFamily: 'Vazirmatn',
     fontWeight: 'bold',
     fontSize: 16,
   },
   time: {
-    fontFamily: 'Vazirmatn',
     textAlign: 'center',
     marginTop: 8,
     fontSize: 16,

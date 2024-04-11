@@ -11,7 +11,12 @@ i18n
     async: true,
     init: () => {},
     detect: async () => {
-      return await AsyncStorage.getItem('language');
+      try {
+        return await AsyncStorage.getItem('language');
+      } catch (error) {
+        console.log(error);
+        return 'en';
+      }
     },
   })
   .use(initReactI18next)

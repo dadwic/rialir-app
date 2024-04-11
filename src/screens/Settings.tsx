@@ -21,12 +21,14 @@ export default function Settings() {
     await Linking.openURL(url);
   };
 
-  const storeData = async (index: number) => {
+  const handleChangeLanguage = async (index: number) => {
     const lng = index === 0 ? 'en' : 'fa';
     i18n.changeLanguage(lng);
     try {
       await AsyncStorage.setItem('language', lng);
-    } catch (e) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -62,7 +64,7 @@ export default function Settings() {
         </ListItem.Content>
         <ListItem.ButtonGroup
           buttons={['English', 'فارسی']}
-          onPress={storeData}
+          onPress={handleChangeLanguage}
           selectedIndex={+(i18n.language === 'en')}
           selectedTextStyle={{color: colors.text}}
           innerBorderStyle={{color: colors.border}}

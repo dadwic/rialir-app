@@ -20,6 +20,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
+
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {

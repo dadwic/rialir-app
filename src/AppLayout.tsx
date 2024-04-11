@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {Icon, Text} from '@rneui/themed';
+import {useTranslation} from 'react-i18next';
 import {HeaderTitle} from '@react-navigation/elements';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -12,6 +13,7 @@ import HomeScreen from './screens/Home';
 const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
+  const {t} = useTranslation();
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -60,9 +62,9 @@ export default function AppLayout() {
         name="Settings"
         component={SettingsScreen}
         options={{
-          headerTitle: 'تنظیمات',
+          headerTitle: t('settings.title'),
+          tabBarLabel: t('settings.title'),
           headerTitleStyle: {fontFamily: 'Vazirmatn'},
-          tabBarLabel: 'تنظیمات',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />
           ),

@@ -1,5 +1,13 @@
 {
-  "darkMode": "Dark mode",
+  "settings": {
+    "title": "Settings",
+    "darkMode": "Dark Mode",
+    "language": "Language",
+    "web": "Web Version",
+    "report": "Report a bug",
+    "contact": "Contact",
+    "version": "Version"
+  },
   "home": {
     "try_irt": "Turkish Lira to Toman"
   }

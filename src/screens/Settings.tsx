@@ -30,7 +30,9 @@ export default function Settings() {
         }}>
         <Icon name="dark-mode" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>{t('darkMode')}</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            {t('settings.darkMode')}
+          </ListItem.Title>
         </ListItem.Content>
         <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
       </ListItem>
@@ -44,7 +46,9 @@ export default function Settings() {
         }}>
         <Icon name="translate" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>زبان</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            {t('settings.language')}
+          </ListItem.Title>
         </ListItem.Content>
         <ListItem.ButtonGroup
           buttons={['English', 'فارسی']}
@@ -68,7 +72,9 @@ export default function Settings() {
         }}>
         <Icon name="language" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>نسخه وب</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            {t('settings.web')}
+          </ListItem.Title>
         </ListItem.Content>
         <Icon name="chevron-left" />
       </ListItem>
@@ -82,7 +88,9 @@ export default function Settings() {
         }}>
         <Icon name="report" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>گزارش مشکل</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            {t('settings.report')}
+          </ListItem.Title>
         </ListItem.Content>
         <Icon name="chevron-left" />
       </ListItem>
@@ -96,12 +104,14 @@ export default function Settings() {
         }}>
         <Icon name="alternate-email" />
         <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>تماس با ما</ListItem.Title>
+          <ListItem.Title style={styles.text}>
+            {t('settings.contact')}
+          </ListItem.Title>
         </ListItem.Content>
         <Icon name="chevron-left" />
       </ListItem>
       <Text style={[styles.version, {color: dark ? 'grey' : '#424242'}]}>
-        {'🚀'} نسخه {getVersion()}
+        {'🚀'} {t('settings.version')} {getVersion()}
       </Text>
     </View>
   );

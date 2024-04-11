@@ -1,5 +1,13 @@
 {
-  "darkMode": "حالت تاریک",
+  "settings": {
+    "title": "تنظیمات",
+    "darkMode": "حالت تاریک",
+    "language": "زبان",
+    "web": "نسخه وب",
+    "report": "گزارش مشکل",
+    "contact": "تماس با ما",
+    "version": "نسخه"
+  },
   "home": {
     "try_irt": "لیر ترکیه به تومان"
   }

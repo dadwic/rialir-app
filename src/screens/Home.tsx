@@ -258,11 +258,11 @@ export default function Home() {
           />
           <ListItem.Content>
             <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
-              خرید کالا از ترکیه
+              {t('home.shopping')}
             </ListItem.Title>
             <ListItem.Subtitle
               style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-              لیر ترکیه به تومان
+              {t('home.try_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
           <Text style={[styles.sell, {color: colors.text}]}>

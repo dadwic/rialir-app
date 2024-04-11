@@ -9,6 +9,8 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
+  const direction = i18n.dir();
+  const chevron = direction === 'rtl' ? 'left' : 'right';
 
   const toggleSwitch = () => {
     Appearance.setColorScheme(dark ? 'light' : 'dark');
@@ -19,7 +21,7 @@ export default function Settings() {
   };
 
   return (
-    <View style={{direction: i18n.dir()}}>
+    <View style={{direction}}>
       <ListItem
         topDivider
         bottomDivider
@@ -37,7 +39,6 @@ export default function Settings() {
         <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
       </ListItem>
       <ListItem
-        topDivider
         bottomDivider
         containerStyle={{
           backgroundColor: colors.card,
@@ -76,7 +77,7 @@ export default function Settings() {
             {t('settings.web')}
           </ListItem.Title>
         </ListItem.Content>
-        <Icon name="chevron-left" />
+        <Icon name={`chevron-${chevron}`} />
       </ListItem>
       <ListItem
         bottomDivider
@@ -92,7 +93,7 @@ export default function Settings() {
             {t('settings.report')}
           </ListItem.Title>
         </ListItem.Content>
-        <Icon name="chevron-left" />
+        <Icon name={`chevron-${chevron}`} />
       </ListItem>
       <ListItem
         bottomDivider
@@ -108,7 +109,7 @@ export default function Settings() {
             {t('settings.contact')}
           </ListItem.Title>
         </ListItem.Content>
-        <Icon name="chevron-left" />
+        <Icon name={`chevron-${chevron}`} />
       </ListItem>
       <Text style={[styles.version, {color: dark ? 'grey' : '#424242'}]}>
         {'🚀'} {t('settings.version')} {getVersion()}

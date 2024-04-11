@@ -55,12 +55,12 @@ export default function Settings() {
           buttons={['English', 'فارسی']}
           selectedIndex={+(i18n.language === 'en')}
           onPress={index => i18n.changeLanguage(index === 0 ? 'en' : 'fa')}
-          selectedButtonStyle={{
-            backgroundColor: colors.card,
-          }}
-          selectedTextStyle={{
-            color: colors.text,
-          }}
+          selectedTextStyle={{color: colors.text}}
+          innerBorderStyle={{color: colors.border}}
+          containerStyle={{borderColor: colors.border}}
+          buttonStyle={{backgroundColor: colors.background}}
+          selectedButtonStyle={{backgroundColor: colors.card}}
+          textStyle={{color: colors.primary, fontWeight: 'bold'}}
         />
       </ListItem>
       <ListItem

@@ -30,7 +30,7 @@ export default function AppLayout() {
         component={OrderScreen}
         options={{
           headerShown: false,
-          tabBarLabel: 'خرید از ترکیه',
+          tabBarLabel: t('order.title'),
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="shopping-cart" size={size} color={color} />
           ),

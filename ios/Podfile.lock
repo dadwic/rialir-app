@@ -1149,6 +1149,8 @@ PODS:
     - React-jsi (= 0.73.5)
     - React-logger (= 0.73.5)
     - React-perflogger (= 0.73.5)
+  - RNCAsyncStorage (1.23.1):
+    - React-Core
   - RNDeviceInfo (10.13.1):
     - React-Core
   - RNFBAnalytics (19.1.1):
@@ -1222,6 +1224,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
@@ -1344,6 +1347,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNFBAnalytics:
@@ -1418,6 +1423,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: ed71ec64a3e5cf509d74dfe9e25d72b04c84a3ad
   React-utils: 74fc896195fb41a1f7dcd5737d89be59c1fdccc4
   ReactCommon: ab6655d0224cf39c997ea634d257c609d345e23d
+  RNCAsyncStorage: 826b603ae9c0f88b5ac4e956801f755109fa4d5c
   RNDeviceInfo: 4f9c7cfd6b9db1b05eb919620a001cf35b536423
   RNFBAnalytics: e96c8e5bdfb46fc86d12906d4344babaf1683777
   RNFBApp: 6d8509c5bb19b8788fee4f6a1f5d481aff20f15a

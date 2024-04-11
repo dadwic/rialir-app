@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {useTheme} from '@react-navigation/native';
-import {getVersion} from 'react-native-device-info';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ListItem, Icon, Switch} from '@rneui/themed';
+import {getVersion} from 'react-native-device-info';
+import {useTheme} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 export default function Settings() {
   const {colors, dark} = useTheme();
@@ -18,6 +19,14 @@ export default function Settings() {
 
   const handlePress = (url: string) => async () => {
     await Linking.openURL(url);
+  };
+
+  const storeData = async (index: number) => {
+    const lng = index === 0 ? 'en' : 'fa';
+    i18n.changeLanguage(lng);
+    try {
+      await AsyncStorage.setItem('@i18next-async-storage/user-language', lng);
+    } catch (e) {}
   };
 
   return (
@@ -53,8 +62,8 @@ export default function Settings() {
         </ListItem.Content>
         <ListItem.ButtonGroup
           buttons={['English', 'فارسی']}
+          onPress={storeData}
           selectedIndex={+(i18n.language === 'en')}
-          onPress={index => i18n.changeLanguage(index === 0 ? 'en' : 'fa')}
           selectedTextStyle={{color: colors.text}}
           innerBorderStyle={{color: colors.border}}
           containerStyle={{borderColor: colors.border}}

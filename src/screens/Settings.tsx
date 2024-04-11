@@ -25,7 +25,7 @@ export default function Settings() {
     const lng = index === 0 ? 'en' : 'fa';
     i18n.changeLanguage(lng);
     try {
-      await AsyncStorage.setItem('@i18next-async-storage/user-language', lng);
+      await AsyncStorage.setItem('language', lng);
     } catch (e) {}
   };
 

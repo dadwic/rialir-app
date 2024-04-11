@@ -36,11 +36,14 @@ export default function Settings() {
       <ListItem
         topDivider
         bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Icon name="dark-mode" />
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>
@@ -51,11 +54,14 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Icon name="translate" />
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>
@@ -66,22 +72,25 @@ export default function Settings() {
           buttons={['English', 'فارسی']}
           onPress={handleChangeLanguage}
           selectedIndex={+(i18n.language === 'en')}
+          textStyle={{color: colors.primary}}
           selectedTextStyle={{color: colors.text}}
           innerBorderStyle={{color: colors.border}}
           containerStyle={{borderColor: colors.border}}
           buttonStyle={{backgroundColor: colors.background}}
           selectedButtonStyle={{backgroundColor: colors.card}}
-          textStyle={{color: colors.primary, fontWeight: 'bold'}}
         />
       </ListItem>
       <ListItem
         bottomDivider
         onPress={handlePress('https://web.rialir.com/')}
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Icon name="language" />
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>
@@ -93,11 +102,14 @@ export default function Settings() {
       <ListItem
         bottomDivider
         onPress={handlePress('mailto:rialir.com@gmail.com')}
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Icon name="report" />
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>
@@ -109,11 +121,14 @@ export default function Settings() {
       <ListItem
         bottomDivider
         onPress={handlePress('mailto:rialir.com@gmail.com')}
-        containerStyle={{
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-          borderBottomColor: colors.border,
-        }}>
+        containerStyle={[
+          styles.listItem,
+          {
+            backgroundColor: colors.card,
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          },
+        ]}>
         <Icon name="alternate-email" />
         <ListItem.Content style={styles.content}>
           <ListItem.Title style={styles.text}>
@@ -130,6 +145,9 @@ export default function Settings() {
 }
 
 const styles = StyleSheet.create({
+  listItem: {
+    height: 64,
+  },
   ltr: {
     direction: 'ltr',
   },

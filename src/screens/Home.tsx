@@ -39,6 +39,7 @@ export default function Home() {
     setRefreshing(true);
     const res = await fetch(process.env.API_URL as string, {
       headers: {
+        'Accept-Language': i18n.language,
         'x-api-key': process.env.API_KEY as string,
       },
     });

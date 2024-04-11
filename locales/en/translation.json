@@ -14,10 +14,10 @@
     "usdt_irt": "Tether to Toman",
     "usdt_try": "Tether to Turkish lira",
     "btc_usdt": "Bitcoin to Tether",
-    "shopping": "Online Shop",
+    "shopping": "Shopping from Turkey",
     "lastUpdate": "Last Update: "
   },
   "order": {
-    "title": "Shopping"
+    "title": "Shop"
   }
 }

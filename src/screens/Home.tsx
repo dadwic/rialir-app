@@ -19,15 +19,19 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
-
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
+  const direction = i18n.dir();
+  const isEn = i18n.language === 'en';
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
+  moment.loadPersian({
+    usePersianDigits: !isEn,
+    dialect: 'persian-modern',
+  });
 
   const handlePress = async (url: string) => {
     await Linking.openURL(url);
@@ -142,7 +146,7 @@ export default function Home() {
           <ListItem.Content>
             <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
             <ListItem.Subtitle style={styles.subtitle}>
-              تتر به تومان
+              {t('home.usdt_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
           <View>
@@ -173,7 +177,7 @@ export default function Home() {
         <ListItem.Content>
           <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
           <ListItem.Subtitle style={styles.subtitle}>
-            تتر به لیر ترکیه
+            {t('home.usdt_try')}
           </ListItem.Subtitle>
         </ListItem.Content>
         <View>
@@ -249,8 +253,12 @@ export default function Home() {
       )}
       {price?.updated_at && (
         <Text style={[styles.time, {color: dark ? 'grey' : '#424242'}]}>
-          {'آخرین به‌روزرسانی: '}
-          {moment(price.updated_at).format('jD jMMMM jYYYY ساعت H:mm')}
+          {t('home.lastUpdate')}
+          {moment(price.updated_at).format(
+            direction === 'ltr' ? 'YYYY-M-D' : 'jD jMMMM jYYYY',
+          ) +
+            t('home.hour') +
+            moment(price.updated_at).format('H:mm')}
         </Text>
       )}
     </ScrollView>

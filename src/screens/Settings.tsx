@@ -74,7 +74,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('https://www.rialir.com/')}
+        onPress={handlePress('https://web.rialir.com/')}
         containerStyle={{
           backgroundColor: colors.card,
           borderTopColor: colors.border,

@@ -9,6 +9,11 @@
     "version": "Version"
   },
   "home": {
-    "try_irt": "Turkish Lira to Toman"
+    "title": "Exchange Rate",
+    "usdt_try": "Tether to Turkish lira",
+    "try_irt": "Turkish lira to Toman",
+    "usdt_irt": "Tether to Toman",
+    "lastUpdate": "Last update: ",
+    "hour": " at "
   }
 }

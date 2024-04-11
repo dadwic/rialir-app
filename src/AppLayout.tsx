@@ -51,8 +51,8 @@ export default function AppLayout() {
               <Text>rialir.com</Text>
             </HeaderTitle>
           ),
+          tabBarLabel: t('home.title'),
           headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
-          tabBarLabel: 'قیمت لحظه ای لیر',
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="currency-lira" size={size} color={color} />
           ),

@@ -11,7 +11,8 @@ export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const direction = i18n.dir();
-  const chevron = direction === 'rtl' ? 'left' : 'right';
+  const isRtl = i18n.dir() === 'rtl';
+  const chevron = isRtl ? 'left' : 'right';
 
   const toggleSwitch = () => {
     Appearance.setColorScheme(dark ? 'light' : 'dark');
@@ -45,8 +46,8 @@ export default function Settings() {
           },
         ]}>
         <Icon name="dark-mode" />
-        <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>
+        <ListItem.Content>
+          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
             {t('settings.darkMode')}
           </ListItem.Title>
         </ListItem.Content>
@@ -63,8 +64,8 @@ export default function Settings() {
           },
         ]}>
         <Icon name="translate" />
-        <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>
+        <ListItem.Content>
+          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
             {t('settings.language')}
           </ListItem.Title>
         </ListItem.Content>
@@ -92,8 +93,8 @@ export default function Settings() {
           },
         ]}>
         <Icon name="language" />
-        <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>
+        <ListItem.Content>
+          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
             {t('settings.web')}
           </ListItem.Title>
         </ListItem.Content>
@@ -111,8 +112,8 @@ export default function Settings() {
           },
         ]}>
         <Icon name="report" />
-        <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>
+        <ListItem.Content>
+          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
             {t('settings.report')}
           </ListItem.Title>
         </ListItem.Content>
@@ -130,14 +131,19 @@ export default function Settings() {
           },
         ]}>
         <Icon name="alternate-email" />
-        <ListItem.Content style={styles.content}>
-          <ListItem.Title style={styles.text}>
+        <ListItem.Content>
+          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
             {t('settings.contact')}
           </ListItem.Title>
         </ListItem.Content>
         <Icon name={`chevron-${chevron}`} />
       </ListItem>
-      <Text style={[styles.version, {color: dark ? 'grey' : '#424242'}]}>
+      <Text
+        style={[
+          styles.version,
+          isRtl && styles.Vazirmatn,
+          {color: dark ? 'grey' : '#424242'},
+        ]}>
         {'🚀'} {t('settings.version')} {getVersion()}
       </Text>
     </View>
@@ -148,20 +154,18 @@ const styles = StyleSheet.create({
   listItem: {
     height: 64,
   },
+  Vazirmatn: {
+    fontFamily: 'Vazirmatn',
+  },
   ltr: {
     direction: 'ltr',
   },
-  content: {
-    paddingVertical: 4,
-  },
   version: {
-    fontFamily: 'Vazirmatn',
     textAlign: 'center',
     marginTop: 8,
     fontSize: 16,
   },
   text: {
     fontSize: 16,
-    fontFamily: 'Vazirmatn',
   },
 });

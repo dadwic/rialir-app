@@ -25,7 +25,6 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export default function Home() {
-  const fontFamily = 'Vazirmatn';
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
@@ -112,12 +111,18 @@ export default function Home() {
           />
           <ListItem.Content>
             <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
-            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
+            <ListItem.Subtitle
+              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
               {t('home.try_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
           <View>
-            <Text style={[styles.buy, {color: colors.text}]}>
+            <Text
+              style={[
+                styles.buy,
+                {color: colors.text},
+                !isRtl && styles.textEnd,
+              ]}>
               {ccyFormat(price.try_irt?.buy)}
             </Text>
             <Text style={[styles.sell, {color: colors.text}]}>
@@ -144,12 +149,18 @@ export default function Home() {
           />
           <ListItem.Content>
             <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
-            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
+            <ListItem.Subtitle
+              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
               {t('home.usdt_irt')}
             </ListItem.Subtitle>
           </ListItem.Content>
           <View>
-            <Text style={[styles.buy, {color: colors.text}]}>
+            <Text
+              style={[
+                styles.buy,
+                {color: colors.text},
+                !isRtl && styles.textEnd,
+              ]}>
               {ccyFormat(price.usdt_irt?.buy)}
             </Text>
             <Text style={[styles.sell, {color: colors.text}]}>
@@ -175,14 +186,20 @@ export default function Home() {
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
-          <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
+          <ListItem.Subtitle
+            style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
             {t('home.usdt_try')}
           </ListItem.Subtitle>
         </ListItem.Content>
         <View>
           {price?.usdt_try ? (
             <>
-              <Text style={[styles.buy, {color: colors.text}]}>
+              <Text
+                style={[
+                  styles.buy,
+                  {color: colors.text},
+                  !isRtl && styles.textEnd,
+                ]}>
                 {price.usdt_try?.buy}
               </Text>
               <Text style={[styles.sell, {color: colors.text}]}>
@@ -210,7 +227,8 @@ export default function Home() {
         />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-          <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
+          <ListItem.Subtitle
+            style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
             بیت‌کوین به تتر
           </ListItem.Subtitle>
         </ListItem.Content>
@@ -238,10 +256,11 @@ export default function Home() {
             icon={{name: 'currency-lira', type: 'material', size: 24}}
           />
           <ListItem.Content>
-            <ListItem.Title style={[styles.text, isRtl && {fontFamily}]}>
+            <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
               خرید کالا از ترکیه
             </ListItem.Title>
-            <ListItem.Subtitle style={[styles.subtitle, isRtl && {fontFamily}]}>
+            <ListItem.Subtitle
+              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
               لیر ترکیه به تومان
             </ListItem.Subtitle>
           </ListItem.Content>
@@ -254,7 +273,7 @@ export default function Home() {
         <Text
           style={[
             styles.time,
-            isRtl && {fontFamily},
+            isRtl && styles.Vazirmatn,
             {color: dark ? 'grey' : '#424242'},
           ]}>
           {t('home.lastUpdate')}
@@ -268,6 +287,12 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+  Vazirmatn: {
+    fontFamily: 'Vazirmatn',
+  },
+  textEnd: {
+    textAlign: 'right',
+  },
   listItem: {
     height: 80,
   },

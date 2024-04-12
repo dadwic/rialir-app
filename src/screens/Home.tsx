@@ -28,7 +28,8 @@ const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const isRtl = i18n.dir() === 'rtl';
+  const direction = i18n.dir();
+  const isRtl = direction === 'rtl';
   const [price, setPrice] = useState<any>({});
   const [refreshing, setRefreshing] = useState(false);
 
@@ -90,7 +91,7 @@ export default function Home() {
 
   return (
     <ScrollView
-      style={{direction: i18n.dir()}}
+      style={{direction}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
@@ -112,22 +113,22 @@ export default function Home() {
               circle
               LinearGradientComponent={LinearGradient}
               animation="wave"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
             />
             <ListItem.Content>
               <Skeleton
                 LinearGradientComponent={LinearGradient}
                 animation="wave"
                 width={80}
-                height={16}
+                height={12}
               />
               <Skeleton
                 LinearGradientComponent={LinearGradient}
                 style={styles.mt8}
                 animation="wave"
                 width={120}
-                height={16}
+                height={12}
               />
             </ListItem.Content>
             <Skeleton

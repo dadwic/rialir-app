@@ -119,12 +119,12 @@ export default function Home() {
               <Skeleton
                 LinearGradientComponent={LinearGradient}
                 animation="wave"
-                width={120}
+                width={80}
                 height={16}
-                style={{marginBottom: 8}}
               />
               <Skeleton
                 LinearGradientComponent={LinearGradient}
+                style={styles.mt8}
                 animation="wave"
                 width={120}
                 height={16}
@@ -139,7 +139,7 @@ export default function Home() {
           </ListItem>
         ))
       ) : (
-        <>
+        <React.Fragment>
           {price?.try_irt && (
             <ListItem
               topDivider
@@ -321,6 +321,7 @@ export default function Home() {
           {price?.updated_at && (
             <Text
               style={[
+                styles.mt8,
                 styles.time,
                 isRtl && styles.Vazirmatn,
                 {color: dark ? 'grey' : '#424242'},
@@ -331,7 +332,7 @@ export default function Home() {
                 : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
             </Text>
           )}
-        </>
+        </React.Fragment>
       )}
     </ScrollView>
   );
@@ -357,9 +358,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  mt8: {
+    marginTop: 8,
+  },
   time: {
     textAlign: 'center',
-    marginTop: 8,
     fontSize: 16,
   },
   sell: {

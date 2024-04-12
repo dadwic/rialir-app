@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
-import {Avatar, ListItem} from '@rneui/themed';
 import {useTranslation} from 'react-i18next';
 import throttle from 'lodash.throttle';
 import moment from 'moment-jalaali';
@@ -93,195 +94,244 @@ export default function Home() {
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
-      {price?.try_irt && (
-        <ListItem
-          topDivider
-          bottomDivider
-          containerStyle={[
-            styles.listItem,
-            {
-              backgroundColor: colors.card,
-              borderTopColor: colors.border,
-              borderBottomColor: colors.border,
-            },
-          ]}>
-          <Avatar
-            rounded
-            containerStyle={{backgroundColor: '#424242'}}
-            icon={{name: 'currency-lira', type: 'material', size: 24}}
-          />
-          <ListItem.Content>
-            <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
-            <ListItem.Subtitle
-              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-              {t('home.try_irt')}
-            </ListItem.Subtitle>
-          </ListItem.Content>
-          <View>
-            <Text
-              style={[
-                styles.buy,
-                {color: colors.text},
-                !isRtl && styles.textEnd,
+      {refreshing ? (
+        [...new Array(5)].map((_, key) => (
+          <ListItem
+            key={key}
+            topDivider
+            bottomDivider
+            containerStyle={[
+              styles.listItem,
+              {
+                backgroundColor: colors.card,
+                borderTopColor: colors.border,
+                borderBottomColor: colors.border,
+              },
+            ]}>
+            <Skeleton
+              circle
+              LinearGradientComponent={LinearGradient}
+              animation="wave"
+              width={40}
+              height={40}
+            />
+            <ListItem.Content>
+              <Skeleton
+                LinearGradientComponent={LinearGradient}
+                animation="wave"
+                width={120}
+                height={16}
+                style={{marginBottom: 8}}
+              />
+              <Skeleton
+                LinearGradientComponent={LinearGradient}
+                animation="wave"
+                width={120}
+                height={16}
+              />
+            </ListItem.Content>
+            <Skeleton
+              LinearGradientComponent={LinearGradient}
+              animation="wave"
+              width={80}
+              height={24}
+            />
+          </ListItem>
+        ))
+      ) : (
+        <>
+          {price?.try_irt && (
+            <ListItem
+              topDivider
+              bottomDivider
+              containerStyle={[
+                styles.listItem,
+                {
+                  backgroundColor: colors.card,
+                  borderTopColor: colors.border,
+                  borderBottomColor: colors.border,
+                },
               ]}>
-              {ccyFormat(price.try_irt?.buy)}
-            </Text>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price.try_irt?.sell)}
-            </Text>
-          </View>
-        </ListItem>
-      )}
-      {price?.usdt_irt && (
-        <ListItem
-          bottomDivider
-          containerStyle={[
-            styles.listItem,
-            {
-              backgroundColor: colors.card,
-              borderBottomColor: colors.border,
-            },
-          ]}>
-          <Avatar
-            rounded
-            title="$"
-            titleStyle={{fontSize: 24}}
-            containerStyle={{backgroundColor: '#424242'}}
-          />
-          <ListItem.Content>
-            <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
-            <ListItem.Subtitle
-              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-              {t('home.usdt_irt')}
-            </ListItem.Subtitle>
-          </ListItem.Content>
-          <View>
-            <Text
-              style={[
-                styles.buy,
-                {color: colors.text},
-                !isRtl && styles.textEnd,
-              ]}>
-              {ccyFormat(price.usdt_irt?.buy)}
-            </Text>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price.usdt_irt?.sell)}
-            </Text>
-          </View>
-        </ListItem>
-      )}
-      <ListItem
-        bottomDivider
-        containerStyle={[
-          styles.listItem,
-          {
-            backgroundColor: colors.card,
-            borderBottomColor: colors.border,
-          },
-        ]}>
-        <Avatar
-          rounded
-          title="$"
-          titleStyle={{fontSize: 24}}
-          containerStyle={{backgroundColor: '#424242'}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
-          <ListItem.Subtitle
-            style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-            {t('home.usdt_try')}
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        <View>
-          {price?.usdt_try ? (
-            <>
-              <Text
-                style={[
-                  styles.buy,
-                  {color: colors.text},
-                  !isRtl && styles.textEnd,
-                ]}>
-                {price.usdt_try?.buy}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {price.usdt_try?.sell}
-              </Text>
-            </>
-          ) : (
-            <ActivityIndicator />
+              <Avatar
+                rounded
+                containerStyle={{backgroundColor: '#424242'}}
+                icon={{name: 'currency-lira', type: 'material', size: 24}}
+              />
+              <ListItem.Content>
+                <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
+                <ListItem.Subtitle
+                  style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
+                  {t('home.try_irt')}
+                </ListItem.Subtitle>
+              </ListItem.Content>
+              <View>
+                <Text
+                  style={[
+                    styles.buy,
+                    {color: colors.text},
+                    !isRtl && styles.textEnd,
+                  ]}>
+                  {ccyFormat(price.try_irt?.buy)}
+                </Text>
+                <Text style={[styles.sell, {color: colors.text}]}>
+                  {ccyFormat(price.try_irt?.sell)}
+                </Text>
+              </View>
+            </ListItem>
           )}
-        </View>
-      </ListItem>
-      <ListItem
-        bottomDivider
-        containerStyle={[
-          styles.listItem,
-          {
-            backgroundColor: colors.card,
-            borderBottomColor: colors.border,
-          },
-        ]}>
-        <Avatar
-          rounded
-          containerStyle={{backgroundColor: '#424242'}}
-          icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
-        />
-        <ListItem.Content>
-          <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-          <ListItem.Subtitle
-            style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-            {t('home.btc_usdt')}
-          </ListItem.Subtitle>
-        </ListItem.Content>
-        {price?.btc_usdt ? (
-          <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.btc_usdt)}
-          </Text>
-        ) : (
-          <ActivityIndicator />
-        )}
-      </ListItem>
-      {price?.try_irt?.shop && (
-        <ListItem
-          bottomDivider
-          containerStyle={[
-            styles.listItem,
-            {
-              backgroundColor: colors.card,
-              borderBottomColor: colors.border,
-            },
-          ]}>
-          <Avatar
-            rounded
-            containerStyle={{backgroundColor: '#424242'}}
-            icon={{name: 'currency-lira', type: 'material', size: 24}}
-          />
-          <ListItem.Content>
-            <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
-              {t('home.shopping')}
-            </ListItem.Title>
-            <ListItem.Subtitle
-              style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-              {t('home.try_irt')}
-            </ListItem.Subtitle>
-          </ListItem.Content>
-          <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt.shop)}
-          </Text>
-        </ListItem>
-      )}
-      {price?.updated_at && (
-        <Text
-          style={[
-            styles.time,
-            isRtl && styles.Vazirmatn,
-            {color: dark ? 'grey' : '#424242'},
-          ]}>
-          {t('home.lastUpdate')}
-          {isRtl
-            ? moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')
-            : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
-        </Text>
+          {price?.usdt_irt && (
+            <ListItem
+              bottomDivider
+              containerStyle={[
+                styles.listItem,
+                {
+                  backgroundColor: colors.card,
+                  borderBottomColor: colors.border,
+                },
+              ]}>
+              <Avatar
+                rounded
+                title="$"
+                titleStyle={{fontSize: 24}}
+                containerStyle={{backgroundColor: '#424242'}}
+              />
+              <ListItem.Content>
+                <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
+                <ListItem.Subtitle
+                  style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
+                  {t('home.usdt_irt')}
+                </ListItem.Subtitle>
+              </ListItem.Content>
+              <View>
+                <Text
+                  style={[
+                    styles.buy,
+                    {color: colors.text},
+                    !isRtl && styles.textEnd,
+                  ]}>
+                  {ccyFormat(price.usdt_irt?.buy)}
+                </Text>
+                <Text style={[styles.sell, {color: colors.text}]}>
+                  {ccyFormat(price.usdt_irt?.sell)}
+                </Text>
+              </View>
+            </ListItem>
+          )}
+          <ListItem
+            bottomDivider
+            containerStyle={[
+              styles.listItem,
+              {
+                backgroundColor: colors.card,
+                borderBottomColor: colors.border,
+              },
+            ]}>
+            <Avatar
+              rounded
+              title="$"
+              titleStyle={{fontSize: 24}}
+              containerStyle={{backgroundColor: '#424242'}}
+            />
+            <ListItem.Content>
+              <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
+              <ListItem.Subtitle
+                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
+                {t('home.usdt_try')}
+              </ListItem.Subtitle>
+            </ListItem.Content>
+            <View>
+              {price?.usdt_try ? (
+                <>
+                  <Text
+                    style={[
+                      styles.buy,
+                      {color: colors.text},
+                      !isRtl && styles.textEnd,
+                    ]}>
+                    {price.usdt_try?.buy}
+                  </Text>
+                  <Text style={[styles.sell, {color: colors.text}]}>
+                    {price.usdt_try?.sell}
+                  </Text>
+                </>
+              ) : (
+                <ActivityIndicator />
+              )}
+            </View>
+          </ListItem>
+          <ListItem
+            bottomDivider
+            containerStyle={[
+              styles.listItem,
+              {
+                backgroundColor: colors.card,
+                borderBottomColor: colors.border,
+              },
+            ]}>
+            <Avatar
+              rounded
+              containerStyle={{backgroundColor: '#424242'}}
+              icon={{name: 'currency-bitcoin', type: 'material', size: 24}}
+            />
+            <ListItem.Content>
+              <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
+              <ListItem.Subtitle
+                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
+                {t('home.btc_usdt')}
+              </ListItem.Subtitle>
+            </ListItem.Content>
+            {price?.btc_usdt ? (
+              <Text style={[styles.sell, {color: colors.text}]}>
+                {ccyFormat(price.btc_usdt)}
+              </Text>
+            ) : (
+              <ActivityIndicator />
+            )}
+          </ListItem>
+          {price?.try_irt?.shop && (
+            <ListItem
+              bottomDivider
+              containerStyle={[
+                styles.listItem,
+                {
+                  backgroundColor: colors.card,
+                  borderBottomColor: colors.border,
+                },
+              ]}>
+              <Avatar
+                rounded
+                containerStyle={{backgroundColor: '#424242'}}
+                icon={{name: 'currency-lira', type: 'material', size: 24}}
+              />
+              <ListItem.Content>
+                <ListItem.Title
+                  style={[styles.text, isRtl && styles.Vazirmatn]}>
+                  {t('home.shopping')}
+                </ListItem.Title>
+                <ListItem.Subtitle
+                  style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
+                  {t('home.try_irt')}
+                </ListItem.Subtitle>
+              </ListItem.Content>
+              <Text style={[styles.sell, {color: colors.text}]}>
+                {ccyFormat(price.try_irt.shop)}
+              </Text>
+            </ListItem>
+          )}
+          {price?.updated_at && (
+            <Text
+              style={[
+                styles.time,
+                isRtl && styles.Vazirmatn,
+                {color: dark ? 'grey' : '#424242'},
+              ]}>
+              {t('home.lastUpdate')}
+              {isRtl
+                ? moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')
+                : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
+            </Text>
+          )}
+        </>
       )}
     </ScrollView>
   );

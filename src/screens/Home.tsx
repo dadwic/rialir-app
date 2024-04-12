@@ -241,7 +241,7 @@ export default function Home() {
           <ActivityIndicator />
         )}
       </ListItem>
-      {price?.try_irt && (
+      {price?.try_irt?.shop && (
         <ListItem
           bottomDivider
           containerStyle={[
@@ -266,7 +266,7 @@ export default function Home() {
             </ListItem.Subtitle>
           </ListItem.Content>
           <Text style={[styles.sell, {color: colors.text}]}>
-            {ccyFormat(price.try_irt?.shop)}
+            {ccyFormat(price.try_irt.shop)}
           </Text>
         </ListItem>
       )}

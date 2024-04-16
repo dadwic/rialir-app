@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* rialirTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rialirTests.m */; };
+		00E356F31AD99517003FC87E /* isturkiyeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* isturkiyeTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -25,33 +25,33 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = rialir;
+			remoteInfo = isturkiye;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* isturkiyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = isturkiyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* rialirTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rialirTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* isturkiyeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = isturkiyeTests.m; sourceTree = "<group>"; };
 		0EDA57B5AE244107D8D22C60 /* Pods-isturkiye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.release.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* isturkiye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = isturkiye.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = rialir/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = rialir/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rialir/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rialir/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rialir/main.m; sourceTree = "<group>"; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = isturkiye/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = isturkiye/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = isturkiye/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = isturkiye/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = isturkiye/main.m; sourceTree = "<group>"; };
 		213E9B6F85DDC9F38403A951 /* Pods_isturkiye_isturkiyeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_isturkiye_isturkiyeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-rialir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.debug.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-isturkiye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.debug.xcconfig"; sourceTree = "<group>"; };
 		41E963A9651DF4115CE72C12 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.release.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.debug.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.debug.xcconfig"; sourceTree = "<group>"; };
-		801602DC2BB726950056607C /* isturkiye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = isturkiye.entitlements; path = rialir/isturkiye.entitlements; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-isturkiye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.release.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		801602DC2BB726950056607C /* isturkiye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = isturkiye.entitlements; path = isturkiye/isturkiye.entitlements; sourceTree = "<group>"; };
 		8047EA4B2BCEFA6D0098A4F3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		80D804832B951AE000EF6712 /* Vazirmatn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vazirmatn.ttf; sourceTree = "<group>"; };
 		80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		80F8F1132BB5F0F40082DAEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.release.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.release.xcconfig"; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-isturkiye-isturkiyeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.release.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBA493A2C2CA27100E8DD4D4 /* Pods-isturkiye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F4A7DCFB08C3178BB1B70E7B /* Pods-isturkiye-isturkiyeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.release.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,13 +78,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* rialirTests */ = {
+		00E356EF1AD99517003FC87E /* isturkiyeTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* rialirTests.m */,
+				00E356F21AD99517003FC87E /* isturkiyeTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = rialirTests;
+			path = isturkiyeTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -143,7 +143,7 @@
 				8047EA4B2BCEFA6D0098A4F3 /* LaunchScreen.storyboard */,
 				13B07FAE1A68108700A75B9A /* isturkiye */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* rialirTests */,
+				00E356EF1AD99517003FC87E /* isturkiyeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -165,10 +165,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-rialir.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-isturkiye.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-isturkiye.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-isturkiye-isturkiyeTests.release.xcconfig */,
 				BBA493A2C2CA27100E8DD4D4 /* Pods-isturkiye.debug.xcconfig */,
 				0EDA57B5AE244107D8D22C60 /* Pods-isturkiye.release.xcconfig */,
 				41E963A9651DF4115CE72C12 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */,
@@ -197,7 +197,7 @@
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
 			name = isturkiyeTests;
-			productName = rialirTests;
+			productName = isturkiyeTests;
 			productReference = 00E356EE1AD99517003FC87E /* isturkiyeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -219,7 +219,7 @@
 			dependencies = (
 			);
 			name = isturkiye;
-			productName = rialir;
+			productName = isturkiye;
 			productReference = 13B07F961A680F5B00A75B9A /* isturkiye.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -430,7 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* rialirTests.m in Sources */,
+				00E356F31AD99517003FC87E /* isturkiyeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +463,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = rialirTests/Info.plist;
+				INFOPLIST_FILE = isturkiyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,7 +487,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = rialirTests/Info.plist;
+				INFOPLIST_FILE = isturkiyeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,11 +511,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rialir/rialir.entitlements;
+				CODE_SIGN_ENTITLEMENTS = isturkiye/isturkiye.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64V45GJC46;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = rialir/Info.plist;
+				INFOPLIST_FILE = isturkiye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,7 +526,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rialir.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isturkiye.ios;
 				PRODUCT_NAME = isturkiye;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -540,10 +540,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rialir/rialir.entitlements;
+				CODE_SIGN_ENTITLEMENTS = isturkiye/isturkiye.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64V45GJC46;
-				INFOPLIST_FILE = rialir/Info.plist;
+				INFOPLIST_FILE = isturkiye/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,7 +554,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rialir.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isturkiye.ios;
 				PRODUCT_NAME = isturkiye;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

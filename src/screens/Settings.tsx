@@ -83,7 +83,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('https://web.rialir.com/')}
+        onPress={handlePress('https://web.isturkiye.com/')}
         containerStyle={[
           styles.listItem,
           {

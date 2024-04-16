@@ -10,7 +10,7 @@ export default function Order() {
         marginTop: insets.top,
       }}
       startInLoadingState={true}
-      source={{uri: 'https://www.rialir.com/'}}
+      source={{uri: 'https://www.isturkiye.com/'}}
     />
   );
 }

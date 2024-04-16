@@ -13,17 +13,18 @@ import HomeScreen from './screens/Home';
 const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#CE0E2D',
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: '600',
-          fontFamily: 'Vazirmatn',
-        },
+        tabBarLabelStyle: [
+          {fontWeight: '600'},
+          isRtl && {fontFamily: 'Vazirmatn'},
+        ],
+        tabBarIconStyle: [isRtl && {marginTop: 4}],
       }}>
       <Tab.Screen
         name="Order"

@@ -11,12 +11,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		211E275D2AD30161DC5D41EA /* Pods_rialir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E833C1B83F6565580B7B407 /* Pods_rialir.framework */; };
+		5C4C5A40784F687C4101F424 /* Pods_isturkiye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81DB425C221A5DD7DD9F4FB /* Pods_isturkiye.framework */; };
 		8021BF9D2B977F2500A7E804 /* Vazirmatn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80D804832B951AE000EF6712 /* Vazirmatn.ttf */; };
 		8047EA4C2BCEFA6D0098A4F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8047EA4B2BCEFA6D0098A4F3 /* LaunchScreen.storyboard */; };
 		804C9E242BC4B9950072617A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */; };
 		80F8F1142BB5F0F40082DAEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80F8F1132BB5F0F40082DAEE /* GoogleService-Info.plist */; };
-		F73989EAB04CCB4320A5249B /* Pods_rialir_rialirTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACD67C71A3BFD4531E76926 /* Pods_rialir_rialirTests.framework */; };
+		E6018B0C2AA9689803F98B57 /* Pods_isturkiye_isturkiyeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213E9B6F85DDC9F38403A951 /* Pods_isturkiye_isturkiyeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +33,16 @@
 		00E356EE1AD99517003FC87E /* isturkiyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = isturkiyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* rialirTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rialirTests.m; sourceTree = "<group>"; };
+		0EDA57B5AE244107D8D22C60 /* Pods-isturkiye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.release.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* isturkiye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = isturkiye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = rialir/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = rialir/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rialir/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rialir/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rialir/main.m; sourceTree = "<group>"; };
+		213E9B6F85DDC9F38403A951 /* Pods_isturkiye_isturkiyeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_isturkiye_isturkiyeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-rialir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.debug.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.debug.xcconfig"; sourceTree = "<group>"; };
+		41E963A9651DF4115CE72C12 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.release.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.debug.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.debug.xcconfig"; sourceTree = "<group>"; };
 		801602DC2BB726950056607C /* isturkiye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = isturkiye.entitlements; path = rialir/isturkiye.entitlements; sourceTree = "<group>"; };
@@ -49,9 +52,10 @@
 		80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		80F8F1132BB5F0F40082DAEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.release.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.release.xcconfig"; sourceTree = "<group>"; };
-		8E833C1B83F6565580B7B407 /* Pods_rialir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rialir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BACD67C71A3BFD4531E76926 /* Pods_rialir_rialirTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rialir_rialirTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA493A2C2CA27100E8DD4D4 /* Pods-isturkiye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye.debug.xcconfig"; path = "Target Support Files/Pods-isturkiye/Pods-isturkiye.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F4A7DCFB08C3178BB1B70E7B /* Pods-isturkiye-isturkiyeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-isturkiye-isturkiyeTests.release.xcconfig"; path = "Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F81DB425C221A5DD7DD9F4FB /* Pods_isturkiye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_isturkiye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F73989EAB04CCB4320A5249B /* Pods_rialir_rialirTests.framework in Frameworks */,
+				E6018B0C2AA9689803F98B57 /* Pods_isturkiye_isturkiyeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211E275D2AD30161DC5D41EA /* Pods_rialir.framework in Frameworks */,
+				5C4C5A40784F687C4101F424 /* Pods_isturkiye.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8E833C1B83F6565580B7B407 /* Pods_rialir.framework */,
-				BACD67C71A3BFD4531E76926 /* Pods_rialir_rialirTests.framework */,
+				F81DB425C221A5DD7DD9F4FB /* Pods_isturkiye.framework */,
+				213E9B6F85DDC9F38403A951 /* Pods_isturkiye_isturkiyeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +169,10 @@
 				5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */,
+				BBA493A2C2CA27100E8DD4D4 /* Pods-isturkiye.debug.xcconfig */,
+				0EDA57B5AE244107D8D22C60 /* Pods-isturkiye.release.xcconfig */,
+				41E963A9651DF4115CE72C12 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */,
+				F4A7DCFB08C3178BB1B70E7B /* Pods-isturkiye-isturkiyeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -296,15 +304,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4559315D69AA9CCFED309907 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -335,7 +343,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-rialir-rialirTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-isturkiye-isturkiyeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -357,7 +365,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-rialir-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-isturkiye-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,15 +378,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -387,15 +395,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rialir/Pods-rialir-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-isturkiye/Pods-isturkiye-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -404,15 +412,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-isturkiye-isturkiyeTests/Pods-isturkiye-isturkiyeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -448,7 +456,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */;
+			baseConfigurationReference = 41E963A9651DF4115CE72C12 /* Pods-isturkiye-isturkiyeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -475,7 +483,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-rialir-rialirTests.release.xcconfig */;
+			baseConfigurationReference = F4A7DCFB08C3178BB1B70E7B /* Pods-isturkiye-isturkiyeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -499,7 +507,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-rialir.debug.xcconfig */;
+			baseConfigurationReference = BBA493A2C2CA27100E8DD4D4 /* Pods-isturkiye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -528,7 +536,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */;
+			baseConfigurationReference = 0EDA57B5AE244107D8D22C60 /* Pods-isturkiye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -633,7 +641,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -712,7 +723,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

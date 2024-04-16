@@ -25,7 +25,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'rialir' do
+target 'isturkiye' do
   config = use_native_modules!
 
   use_frameworks! :linkage => :static
@@ -42,7 +42,7 @@ target 'rialir' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'rialirTests' do
+  target 'isturkiyeTests' do
     inherit! :complete
     # Pods for testing
   end

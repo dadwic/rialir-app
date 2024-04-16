@@ -1,5 +1,4 @@
 import React from 'react';
-import analytics from '@react-native-firebase/analytics';
 import {StyleSheet, useColorScheme} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
@@ -23,19 +22,7 @@ function App(): React.JSX.Element {
         onReady={() => {
           routeNameRef.current = navigationRef.getCurrentRoute()?.name;
         }}
-        theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
-        onStateChange={async () => {
-          const previousRouteName = routeNameRef.current;
-          const currentRouteName = navigationRef.getCurrentRoute()?.name;
-
-          if (previousRouteName !== currentRouteName) {
-            await analytics().logScreenView({
-              screen_name: currentRouteName,
-              screen_class: currentRouteName,
-            });
-          }
-          routeNameRef.current = currentRouteName;
-        }}>
+        theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeProvider
           theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
           <AppLayout />

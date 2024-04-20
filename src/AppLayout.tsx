@@ -7,7 +7,6 @@ import {HeaderTitle} from '@react-navigation/elements';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
-import OrderScreen from './screens/Order';
 import HomeScreen from './screens/Home';
 
 const Tab = createBottomTabNavigator();
@@ -27,17 +26,6 @@ export default function AppLayout() {
         tabBarIconStyle: [isRtl && {marginTop: 4}],
       }}>
       <Tab.Screen
-        name="Order"
-        component={OrderScreen}
-        options={{
-          headerShown: false,
-          tabBarLabel: t('order.title'),
-          tabBarIcon: ({size, color}) => (
-            <MaterialIcons name="shopping-cart" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
@@ -49,7 +37,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>isturkiye.com</Text>
+              <Text>rialir.com</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

@@ -16,8 +16,5 @@
     "btc_usdt": "Bitcoin to Tether",
     "shopping": "Online Shopping",
     "lastUpdate": "Last Update: "
-  },
-  "order": {
-    "title": "Shop"
   }
 }

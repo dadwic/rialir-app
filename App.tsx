@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyleSheet, useColorScheme} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {useColorScheme} from 'react-native';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {
   NavigationContainer,
@@ -16,26 +15,18 @@ function App(): React.JSX.Element {
   const navigationRef = useNavigationContainerRef();
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <NavigationContainer
-        ref={navigationRef}
-        onReady={() => {
-          routeNameRef.current = navigationRef.getCurrentRoute()?.name;
-        }}
-        theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <ThemeProvider
-          theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
-          <AppLayout />
-        </ThemeProvider>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef.getCurrentRoute()?.name;
+      }}
+      theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <ThemeProvider
+        theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
+        <AppLayout />
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

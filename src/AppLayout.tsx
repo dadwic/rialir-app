@@ -18,7 +18,6 @@ export default function AppLayout() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: '#CE0E2D',
         tabBarLabelStyle: [
           {fontWeight: '600'},
           isRtl && {fontFamily: 'Vazirmatn'},

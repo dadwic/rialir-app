@@ -7,7 +7,4 @@
    <FileRef
       location = "group:/Users/dadwic/Developer/rialir-app/ios/rialir.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:rialir.xcodeproj">
-   </FileRef>
 </Workspace>

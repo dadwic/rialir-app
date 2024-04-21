@@ -14,6 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function AppLayout() {
   const {t, i18n} = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
+  const isDemo = new Date().getTime() < 1714510800000;
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -26,7 +27,7 @@ export default function AppLayout() {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={() => <HomeScreen isDemo={isDemo} />}
         options={{
           headerTitle: props => (
             <HeaderTitle {...props}>
@@ -36,7 +37,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>rialir.com</Text>
+              <Text>{isDemo ? 'rialira.com' : 'rialir.com'}</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),
@@ -48,7 +49,7 @@ export default function AppLayout() {
       />
       <Tab.Screen
         name="Settings"
-        component={SettingsScreen}
+        component={() => <SettingsScreen isDemo={isDemo} />}
         options={{
           headerTitle: t('settings.title'),
           tabBarLabel: t('settings.title'),

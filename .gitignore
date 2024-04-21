@@ -70,6 +70,7 @@ yarn.lock
 /coverage
 
 # env files
+src/config.ts
 .env*.local
 .env.development
 .env.production

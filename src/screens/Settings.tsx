@@ -6,8 +6,9 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {RIALIRA_EMAIL, RIALIRA_WEB, RIALIR_EMAIL, RIALIR_WEB} from '../config';
 
-export default function Settings() {
+export default function Settings({isDemo}: any) {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const direction = i18n.dir();
@@ -83,7 +84,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('https://web.rialir.com/')}
+        onPress={handlePress(isDemo ? RIALIRA_WEB : RIALIR_WEB)}
         containerStyle={[
           styles.listItem,
           {
@@ -102,7 +103,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('mailto:rialir.com@gmail.com')}
+        onPress={handlePress(`mailto:${isDemo ? RIALIRA_EMAIL : RIALIR_EMAIL}`)}
         containerStyle={[
           styles.listItem,
           {
@@ -121,7 +122,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('mailto:rialir.com@gmail.com')}
+        onPress={handlePress(`mailto:${isDemo ? RIALIRA_EMAIL : RIALIR_EMAIL}`)}
         containerStyle={[
           styles.listItem,
           {

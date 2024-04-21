@@ -8,13 +8,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import HomeScreen from './screens/Home';
+import {IS_DEMO} from './config';
 
 const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
   const {t, i18n} = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
-  const isDemo = new Date().getTime() < 1714510800000;
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -27,7 +27,7 @@ export default function AppLayout() {
       }}>
       <Tab.Screen
         name="Home"
-        component={() => <HomeScreen isDemo={isDemo} />}
+        component={HomeScreen}
         options={{
           headerTitle: props => (
             <HeaderTitle {...props}>
@@ -37,7 +37,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>{isDemo ? 'rialira.com' : 'rialir.com'}</Text>
+              <Text>{IS_DEMO ? 'rialira.com' : 'rialir.com'}</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),
@@ -49,7 +49,7 @@ export default function AppLayout() {
       />
       <Tab.Screen
         name="Settings"
-        component={() => <SettingsScreen isDemo={isDemo} />}
+        component={SettingsScreen}
         options={{
           headerTitle: t('settings.title'),
           tabBarLabel: t('settings.title'),

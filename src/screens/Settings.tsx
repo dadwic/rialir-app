@@ -6,9 +6,15 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {RIALIRA_EMAIL, RIALIRA_WEB, RIALIR_EMAIL, RIALIR_WEB} from '../config';
+import {
+  IS_DEMO,
+  RIALIR_EMAIL,
+  RIALIRA_EMAIL,
+  RIALIR_WEB,
+  RIALIRA_WEB,
+} from '../config';
 
-export default function Settings({isDemo}: any) {
+export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const direction = i18n.dir();
@@ -84,7 +90,7 @@ export default function Settings({isDemo}: any) {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress(isDemo ? RIALIRA_WEB : RIALIR_WEB)}
+        onPress={handlePress(IS_DEMO ? RIALIRA_WEB : RIALIR_WEB)}
         containerStyle={[
           styles.listItem,
           {
@@ -103,7 +109,9 @@ export default function Settings({isDemo}: any) {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress(`mailto:${isDemo ? RIALIRA_EMAIL : RIALIR_EMAIL}`)}
+        onPress={handlePress(
+          `mailto:${IS_DEMO ? RIALIRA_EMAIL : RIALIR_EMAIL}`,
+        )}
         containerStyle={[
           styles.listItem,
           {
@@ -122,7 +130,9 @@ export default function Settings({isDemo}: any) {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress(`mailto:${isDemo ? RIALIRA_EMAIL : RIALIR_EMAIL}`)}
+        onPress={handlePress(
+          `mailto:${IS_DEMO ? RIALIRA_EMAIL : RIALIR_EMAIL}`,
+        )}
         containerStyle={[
           styles.listItem,
           {

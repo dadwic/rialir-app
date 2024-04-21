@@ -20,13 +20,13 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {API_KEY, RIALIR_API, RIALIRA_API} from '../config';
+import {API_KEY, IS_DEMO, RIALIR_API, RIALIRA_API} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-export default function Home({isDemo}: any) {
+export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const direction = i18n.dir();
@@ -40,7 +40,7 @@ export default function Home({isDemo}: any) {
 
   const fetchData = async () => {
     setRefreshing(true);
-    const res = await fetch(isDemo ? RIALIRA_API : RIALIR_API, {
+    const res = await fetch(IS_DEMO ? RIALIRA_API : RIALIR_API, {
       headers: {
         'Accept-Language': i18n.language,
         'x-api-key': API_KEY,

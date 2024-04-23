@@ -28,8 +28,6 @@ end
 target 'isturkiye' do
   config = use_native_modules!
 
-  pod 'Google-Mobile-Ads-SDK'
-
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.

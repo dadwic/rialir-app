@@ -70,7 +70,7 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - Google-Mobile-Ads-SDK (11.3.0):
+  - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleUserMessagingPlatform (2.3.0)
   - hermes-engine (0.73.5):
@@ -1122,6 +1122,12 @@ PODS:
     - React-Core
   - RNDeviceInfo (10.13.1):
     - React-Core
+  - RNGoogleMobileAds (13.2.0):
+    - glog
+    - Google-Mobile-Ads-SDK (= 11.2.0)
+    - GoogleUserMessagingPlatform (= 2.3.0)
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - RNScreens (3.29.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1160,7 +1166,6 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.201.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.201.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - Google-Mobile-Ads-SDK
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
@@ -1211,6 +1216,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -1337,6 +1343,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
+  RNGoogleMobileAds:
+    :path: "../node_modules/react-native-google-mobile-ads"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
@@ -1361,7 +1369,7 @@ SPEC CHECKSUMS:
   FlipperKit: 37525a5d056ef9b93d1578e04bc3ea1de940094f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
-  Google-Mobile-Ads-SDK: 301a16c461c331ba34ff4dab40a22ab7c147af61
+  Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleUserMessagingPlatform: b1ad7bb1ee3ce64749d4fec24f667b36e45c396c
   hermes-engine: 1d1835b2cc54c381909d94d1b3c8e0a2f1a94a0e
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
@@ -1410,11 +1418,12 @@ SPEC CHECKSUMS:
   ReactCommon: 2947b0bffd82ea0e58ca7928881152d4c6dae9af
   RNCAsyncStorage: 826b603ae9c0f88b5ac4e956801f755109fa4d5c
   RNDeviceInfo: 4f9c7cfd6b9db1b05eb919620a001cf35b536423
+  RNGoogleMobileAds: 6a1d0ffbf5532bc0efad36414619fa5bbedc155d
   RNScreens: 17e2f657f1b09a71ec3c821368a04acbb7ebcb46
   RNVectorIcons: 73ab573085f65a572d3b6233e68996d4707fd505
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 9e6a04eacbd94f97d94577017e9f23b3ab41cf6c
 
-PODFILE CHECKSUM: 231d678dee817e78871f37d62728d19cdde9c99c
+PODFILE CHECKSUM: 0b4610668b2d1882ba34e64bd9827a8a2b674aaf
 
 COCOAPODS: 1.15.2

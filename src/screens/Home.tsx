@@ -2,6 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -20,11 +21,19 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {API_KEY, IS_DEMO, RIALIR_API, ISTURKIYE_API} from '../config';
+import {
+  AD_UNIT_ID,
+  API_KEY,
+  IS_DEMO,
+  RIALIR_API,
+  ISTURKIYE_API,
+} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : AD_UNIT_ID;
 
 export default function Home() {
   const {colors, dark} = useTheme();
@@ -336,6 +345,10 @@ export default function Home() {
           )}
         </React.Fragment>
       )}
+      <BannerAd
+        unitId={adUnitId}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+      />
     </ScrollView>
   );
 }

@@ -21,7 +21,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
-ios-isturkiye/.xcode.env.local
 
 # Android/IntelliJ
 #
@@ -60,7 +59,6 @@ yarn.lock
 
 # Ruby / CocoaPods
 /ios/Pods/
-/ios-isturkiye/Pods/
 /vendor/bundle/
 
 # Temporary files created by Metro to check the health of the file watcher

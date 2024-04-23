@@ -20,7 +20,7 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {API_KEY, IS_DEMO, RIALIR_API, RIALIRA_API} from '../config';
+import {API_KEY, IS_DEMO, RIALIR_API, ISTURKIYE_API} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
@@ -40,7 +40,7 @@ export default function Home() {
 
   const fetchData = async () => {
     setRefreshing(true);
-    const res = await fetch(IS_DEMO ? RIALIRA_API : RIALIR_API, {
+    const res = await fetch(IS_DEMO ? ISTURKIYE_API : RIALIR_API, {
       headers: {
         'Accept-Language': i18n.language,
         'x-api-key': API_KEY,

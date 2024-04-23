@@ -37,7 +37,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>{IS_DEMO ? 'rialira.com' : 'rialir.com'}</Text>
+              <Text>{IS_DEMO ? 'isturkiye.com' : 'rialir.com'}</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

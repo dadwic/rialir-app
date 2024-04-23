@@ -1,4 +1,7 @@
 {
   "name": "isturkiye",
-  "displayName": "İşTürkiye"
+  "displayName": "İşTürkiye",
+  "react-native-google-mobile-ads": {
+    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+  }
 }

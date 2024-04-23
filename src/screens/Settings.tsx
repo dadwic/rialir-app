@@ -8,10 +8,10 @@ import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {
   IS_DEMO,
-  RIALIR_EMAIL,
-  RIALIRA_EMAIL,
   RIALIR_WEB,
-  RIALIRA_WEB,
+  RIALIR_EMAIL,
+  ISTURKIYE_WEB,
+  ISTURKIYE_EMAIL,
 } from '../config';
 
 export default function Settings() {
@@ -83,14 +83,17 @@ export default function Settings() {
           textStyle={{color: colors.primary}}
           selectedTextStyle={{color: colors.text}}
           innerBorderStyle={{color: colors.border}}
-          containerStyle={{borderColor: colors.border}}
+          containerStyle={{
+            borderColor: colors.border,
+            backgroundColor: colors.card,
+          }}
           buttonStyle={{backgroundColor: colors.background}}
           selectedButtonStyle={{backgroundColor: colors.card}}
         />
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress(IS_DEMO ? RIALIRA_WEB : RIALIR_WEB)}
+        onPress={handlePress(IS_DEMO ? ISTURKIYE_WEB : RIALIR_WEB)}
         containerStyle={[
           styles.listItem,
           {
@@ -110,7 +113,7 @@ export default function Settings() {
       <ListItem
         bottomDivider
         onPress={handlePress(
-          `mailto:${IS_DEMO ? RIALIRA_EMAIL : RIALIR_EMAIL}`,
+          `mailto:${IS_DEMO ? ISTURKIYE_EMAIL : RIALIR_EMAIL}`,
         )}
         containerStyle={[
           styles.listItem,
@@ -131,7 +134,7 @@ export default function Settings() {
       <ListItem
         bottomDivider
         onPress={handlePress(
-          `mailto:${IS_DEMO ? RIALIRA_EMAIL : RIALIR_EMAIL}`,
+          `mailto:${IS_DEMO ? ISTURKIYE_EMAIL : RIALIR_EMAIL}`,
         )}
         containerStyle={[
           styles.listItem,

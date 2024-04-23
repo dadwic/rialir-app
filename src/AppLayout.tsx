@@ -20,8 +20,8 @@ export default function AppLayout() {
       initialRouteName="Home"
       screenOptions={{
         tabBarLabelStyle: [
-          {fontWeight: '600'},
           isRtl && {fontFamily: 'Vazirmatn'},
+          {fontWeight: '600', marginBottom: 4},
         ],
         tabBarIconStyle: [isRtl && {marginTop: 4}],
       }}>

@@ -1,7 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
+import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -12,6 +13,7 @@ import {
   RIALIR_EMAIL,
   ISTURKIYE_WEB,
   ISTURKIYE_EMAIL,
+  SETTINGS_AD,
 } from '../config';
 
 export default function Settings() {
@@ -152,6 +154,10 @@ export default function Settings() {
         </ListItem.Content>
         <Icon name={`chevron-${chevron}`} />
       </ListItem>
+      <BannerAd
+        unitId={SETTINGS_AD}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+      />
       <Text
         style={[
           styles.version,

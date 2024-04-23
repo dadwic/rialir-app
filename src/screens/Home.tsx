@@ -21,19 +21,11 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {
-  AD_UNIT_ID,
-  API_KEY,
-  IS_DEMO,
-  RIALIR_API,
-  ISTURKIYE_API,
-} from '../config';
+import {API_KEY, HOME_AD, IS_DEMO, RIALIR_API, ISTURKIYE_API} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : AD_UNIT_ID;
 
 export default function Home() {
   const {colors, dark} = useTheme();
@@ -330,7 +322,7 @@ export default function Home() {
             </ListItem>
           )}
           <BannerAd
-            unitId={adUnitId}
+            unitId={HOME_AD}
             size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
           />
           {price?.updated_at && (

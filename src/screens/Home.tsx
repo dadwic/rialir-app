@@ -329,6 +329,10 @@ export default function Home() {
               </Text>
             </ListItem>
           )}
+          <BannerAd
+            unitId={adUnitId}
+            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          />
           {price?.updated_at && (
             <Text
               style={[
@@ -345,10 +349,6 @@ export default function Home() {
           )}
         </React.Fragment>
       )}
-      <BannerAd
-        unitId={adUnitId}
-        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-      />
     </ScrollView>
   );
 }

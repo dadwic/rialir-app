@@ -53,7 +53,7 @@ export default function AppLayout() {
         options={{
           headerTitle: t('settings.title'),
           tabBarLabel: t('settings.title'),
-          headerTitleStyle: {fontFamily: 'Vazirmatn'},
+          headerTitleStyle: [isRtl && {fontFamily: 'Vazirmatn'}],
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />
           ),

@@ -8,7 +8,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import HomeScreen from './screens/Home';
-import {IS_DEMO} from './config';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +36,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>{IS_DEMO ? 'isturkiye.com' : 'rialir.com'}</Text>
+              <Text>web.rialir.com</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

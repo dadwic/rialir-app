@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
+import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -21,7 +21,7 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
-import {API_KEY, HOME_AD, IS_DEMO, RIALIR_API, ISTURKIYE_API} from '../config';
+import {API_KEY, API_URL, HOME_AD} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
@@ -41,7 +41,7 @@ export default function Home() {
 
   const fetchData = async () => {
     setRefreshing(true);
-    const res = await fetch(IS_DEMO ? ISTURKIYE_API : RIALIR_API, {
+    const res = await fetch(API_URL, {
       headers: {
         'Accept-Language': i18n.language,
         'x-api-key': API_KEY,

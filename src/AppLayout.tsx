@@ -36,7 +36,7 @@ export default function AppLayout() {
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
               />
-              <Text>app.rialir.com</Text>
+              <Text>rialir.com</Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

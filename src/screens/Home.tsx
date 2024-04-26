@@ -19,7 +19,6 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
-  ActivityIndicator,
 } from 'react-native';
 import {API_KEY, API_URL, HOME_AD} from '../config';
 
@@ -239,23 +238,17 @@ export default function Home() {
               </ListItem.Subtitle>
             </ListItem.Content>
             <View>
-              {price?.usdt_try ? (
-                <>
-                  <Text
-                    style={[
-                      styles.buy,
-                      {color: colors.text},
-                      !isRtl && styles.textEnd,
-                    ]}>
-                    {price.usdt_try?.buy}
-                  </Text>
-                  <Text style={[styles.sell, {color: colors.text}]}>
-                    {price.usdt_try?.sell}
-                  </Text>
-                </>
-              ) : (
-                <ActivityIndicator />
-              )}
+              <Text
+                style={[
+                  styles.buy,
+                  {color: colors.text},
+                  !isRtl && styles.textEnd,
+                ]}>
+                {price?.usdt_try?.buy}
+              </Text>
+              <Text style={[styles.sell, {color: colors.text}]}>
+                {price?.usdt_try?.sell}
+              </Text>
             </View>
           </ListItem>
           <ListItem
@@ -279,13 +272,9 @@ export default function Home() {
                 {t('home.btc_usdt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.btc_usdt ? (
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price.btc_usdt)}
-              </Text>
-            ) : (
-              <ActivityIndicator />
-            )}
+            <Text style={[styles.sell, {color: colors.text}]}>
+              {ccyFormat(price?.btc_usdt)}
+            </Text>
           </ListItem>
           <ListItem
             bottomDivider

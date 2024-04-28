@@ -41,8 +41,12 @@ export default function Home() {
 
   const fetchData = async () => {
     setRefreshing(true);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
     try {
       const res = await fetch(API_URL, {
+        signal: controller.signal,
         headers: {
           'Accept-Language': i18n.language,
           'x-api-key': API_KEY,
@@ -79,9 +83,10 @@ export default function Home() {
         Alert.alert(data?.message);
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
     } finally {
       setRefreshing(false);
+      clearTimeout(timeoutId);
     }
   };
 

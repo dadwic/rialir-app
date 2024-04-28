@@ -1,6 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
@@ -27,11 +26,6 @@ export default function Settings() {
   const handleChangeLanguage = async (index: number) => {
     const lng = index === 0 ? 'en' : 'fa';
     i18n.changeLanguage(lng);
-    try {
-      await AsyncStorage.setItem('language', lng);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (

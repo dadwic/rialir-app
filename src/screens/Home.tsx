@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
+import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -330,8 +330,8 @@ export default function Home() {
             )}
           </ListItem>
           <BannerAd
-            unitId={HOME_AD}
             size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+            unitId={__DEV__ ? TestIds.APP_OPEN : HOME_AD}
           />
           {price?.updated_at && (
             <Text

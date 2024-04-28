@@ -19,6 +19,7 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
+  ActivityIndicator,
 } from 'react-native';
 import {API_KEY, API_URL, HOME_AD} from '../config';
 
@@ -40,43 +41,48 @@ export default function Home() {
 
   const fetchData = async () => {
     setRefreshing(true);
-    const res = await fetch(API_URL, {
-      headers: {
-        'Accept-Language': i18n.language,
-        'x-api-key': API_KEY,
-      },
-    });
-    const data = await res.json();
-    if (res.ok) {
-      setPrice(data);
-      if (data?.appUpdate) {
-        if (data.appUpdate?.minAppVersion !== getVersion()) {
-          Alert.alert(
-            data.appUpdate?.alertTitle,
-            data.appUpdate?.alertMessage,
-            [
-              {
-                style: 'cancel',
-                text: data.appUpdate?.alertCancel,
-              },
-              {
-                isPreferred: true,
-                text: data.appUpdate?.alertButton,
-                onPress: () =>
-                  handlePress(
-                    Platform.OS === 'ios'
-                      ? data.appUpdate?.iosAppLink
-                      : data.appUpdate?.androidAppLink,
-                  ),
-              },
-            ],
-          );
+    try {
+      const res = await fetch(API_URL, {
+        headers: {
+          'Accept-Language': i18n.language,
+          'x-api-key': API_KEY,
+        },
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setPrice(data);
+        if (data?.appUpdate) {
+          if (data.appUpdate?.minAppVersion !== getVersion()) {
+            Alert.alert(
+              data.appUpdate?.alertTitle,
+              data.appUpdate?.alertMessage,
+              [
+                {
+                  style: 'cancel',
+                  text: data.appUpdate?.alertCancel,
+                },
+                {
+                  isPreferred: true,
+                  text: data.appUpdate?.alertButton,
+                  onPress: () =>
+                    handlePress(
+                      Platform.OS === 'ios'
+                        ? data.appUpdate?.iosAppLink
+                        : data.appUpdate?.androidAppLink,
+                    ),
+                },
+              ],
+            );
+          }
         }
+      } else {
+        Alert.alert(data?.message);
       }
-    } else {
-      Alert.alert(data?.message);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setRefreshing(false);
     }
-    setRefreshing(false);
   };
 
   const onRefresh = useCallback(
@@ -165,19 +171,23 @@ export default function Home() {
                 {t('home.try_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            <View>
-              <Text
-                style={[
-                  styles.buy,
-                  {color: colors.text},
-                  !isRtl && styles.textEnd,
-                ]}>
-                {ccyFormat(price?.try_irt?.buy)}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price?.try_irt?.sell)}
-              </Text>
-            </View>
+            {price?.try_irt ? (
+              <View>
+                <Text
+                  style={[
+                    styles.buy,
+                    {color: colors.text},
+                    !isRtl && styles.textEnd,
+                  ]}>
+                  {ccyFormat(price.try_irt?.buy)}
+                </Text>
+                <Text style={[styles.sell, {color: colors.text}]}>
+                  {ccyFormat(price.try_irt?.sell)}
+                </Text>
+              </View>
+            ) : (
+              <ActivityIndicator />
+            )}
           </ListItem>
           <ListItem
             bottomDivider
@@ -201,19 +211,23 @@ export default function Home() {
                 {t('home.usdt_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            <View>
-              <Text
-                style={[
-                  styles.buy,
-                  {color: colors.text},
-                  !isRtl && styles.textEnd,
-                ]}>
-                {ccyFormat(price?.usdt_irt?.buy)}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {ccyFormat(price?.usdt_irt?.sell)}
-              </Text>
-            </View>
+            {price?.usdt_irt ? (
+              <View>
+                <Text
+                  style={[
+                    styles.buy,
+                    {color: colors.text},
+                    !isRtl && styles.textEnd,
+                  ]}>
+                  {ccyFormat(price.usdt_irt?.buy)}
+                </Text>
+                <Text style={[styles.sell, {color: colors.text}]}>
+                  {ccyFormat(price.usdt_irt?.sell)}
+                </Text>
+              </View>
+            ) : (
+              <ActivityIndicator />
+            )}
           </ListItem>
           <ListItem
             bottomDivider
@@ -237,19 +251,23 @@ export default function Home() {
                 {t('home.usdt_try')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            <View>
-              <Text
-                style={[
-                  styles.buy,
-                  {color: colors.text},
-                  !isRtl && styles.textEnd,
-                ]}>
-                {price?.usdt_try?.buy}
-              </Text>
-              <Text style={[styles.sell, {color: colors.text}]}>
-                {price?.usdt_try?.sell}
-              </Text>
-            </View>
+            {price?.usdt_try ? (
+              <View>
+                <Text
+                  style={[
+                    styles.buy,
+                    {color: colors.text},
+                    !isRtl && styles.textEnd,
+                  ]}>
+                  {price.usdt_try?.buy}
+                </Text>
+                <Text style={[styles.sell, {color: colors.text}]}>
+                  {price.usdt_try?.sell}
+                </Text>
+              </View>
+            ) : (
+              <ActivityIndicator />
+            )}
           </ListItem>
           <ListItem
             bottomDivider
@@ -272,9 +290,13 @@ export default function Home() {
                 {t('home.btc_usdt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price?.btc_usdt)}
-            </Text>
+            {price?.btc_usdt ? (
+              <Text style={[styles.sell, {color: colors.text}]}>
+                {ccyFormat(price.btc_usdt)}
+              </Text>
+            ) : (
+              <ActivityIndicator />
+            )}
           </ListItem>
           <ListItem
             bottomDivider
@@ -299,9 +321,13 @@ export default function Home() {
                 {t('home.try_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            <Text style={[styles.sell, {color: colors.text}]}>
-              {ccyFormat(price?.try_irt?.shop)}
-            </Text>
+            {price?.try_irt ? (
+              <Text style={[styles.sell, {color: colors.text}]}>
+                {ccyFormat(price.try_irt?.shop)}
+              </Text>
+            ) : (
+              <ActivityIndicator />
+            )}
           </ListItem>
           <BannerAd
             unitId={HOME_AD}

@@ -15,6 +15,8 @@
     "usdt_try": "Tether to Turkish lira",
     "btc_usdt": "Bitcoin to Tether",
     "shopping": "Online Shopping",
-    "lastUpdate": "Last Update: "
+    "lastUpdate": "Last Update: ",
+    "error": "Failed to load data",
+    "retry": "Try again"
   }
 }

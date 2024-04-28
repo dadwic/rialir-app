@@ -155,25 +155,16 @@ export default function Home() {
       ) : (
         <React.Fragment>
           {Boolean(error) && (
-            <ListItem
-              topDivider
-              containerStyle={[
-                {
-                  backgroundColor: colors.card,
-                  borderTopColor: colors.border,
-                  borderBottomColor: colors.border,
-                },
-              ]}>
-              <Avatar
-                rounded
-                containerStyle={{backgroundColor: '#424242'}}
-                icon={{name: 'priority-high', type: 'material', size: 24}}
-              />
+            <ListItem onPress={fetchData} containerStyle={styles.error}>
               <ListItem.Content>
-                <ListItem.Title style={styles.subtitle}>
+                <ListItem.Title
+                  style={[styles.errorMessage, isRtl && styles.Vazirmatn]}>
                   {t('home.error')}
                 </ListItem.Title>
               </ListItem.Content>
+              <Text style={[styles.retry, isRtl && styles.Vazirmatn]}>
+                {t('home.retry')}
+              </Text>
             </ListItem>
           )}
           <ListItem
@@ -381,8 +372,19 @@ const styles = StyleSheet.create({
   listItem: {
     height: 80,
   },
+  error: {
+    backgroundColor: '#d32f2f',
+  },
   text: {
     fontSize: 16,
+  },
+  errorMessage: {
+    color: 'white',
+    fontWeight: '500',
+  },
+  retry: {
+    color: 'white',
+    textDecorationLine: 'underline',
   },
   title: {
     fontSize: 16,

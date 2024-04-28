@@ -55,7 +55,6 @@ export default function Settings() {
           styles.listItem,
           {
             backgroundColor: colors.card,
-            borderTopColor: colors.border,
             borderBottomColor: colors.border,
           },
         ]}>
@@ -87,7 +86,6 @@ export default function Settings() {
           styles.listItem,
           {
             backgroundColor: colors.card,
-            borderTopColor: colors.border,
             borderBottomColor: colors.border,
           },
         ]}>
@@ -106,7 +104,6 @@ export default function Settings() {
           styles.listItem,
           {
             backgroundColor: colors.card,
-            borderTopColor: colors.border,
             borderBottomColor: colors.border,
           },
         ]}>
@@ -125,7 +122,6 @@ export default function Settings() {
           styles.listItem,
           {
             backgroundColor: colors.card,
-            borderTopColor: colors.border,
             borderBottomColor: colors.border,
           },
         ]}>

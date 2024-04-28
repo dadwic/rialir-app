@@ -310,10 +310,12 @@ export default function Home() {
             )}
           </ListItem>
           <ListItem
+            bottomDivider
             containerStyle={[
               styles.listItem,
               {
                 backgroundColor: colors.card,
+                borderBottomColor: colors.border,
               },
             ]}>
             <Avatar

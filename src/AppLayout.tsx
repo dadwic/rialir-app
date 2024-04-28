@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon, Text} from '@rneui/themed';
 import {useTranslation} from 'react-i18next';
 import {HeaderTitle} from '@react-navigation/elements';
-import {useNetInfo} from '@react-native-community/netinfo';
+import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
@@ -15,7 +15,17 @@ const Tab = createBottomTabNavigator();
 export default function AppLayout() {
   const {t, i18n} = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
-  const {isConnected} = useNetInfo();
+  const [isConnected, setConnected] = useState<boolean | null>(true);
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state: NetInfoState) => {
+      setConnected(state.isConnected);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
     <Tab.Navigator

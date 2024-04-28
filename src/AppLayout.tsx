@@ -47,7 +47,7 @@ export default function AppLayout() {
                 size={16}
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
-                name={isConnected ? 'lock' : 'wifi-off'}
+                name={isConnected ? 'lock' : 'cloud-off'}
               />
               <Text>
                 {isConnected ? 'rialir.com' : 'No Internet Connection'}

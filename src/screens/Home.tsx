@@ -19,7 +19,6 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
-  ActivityIndicator,
 } from 'react-native';
 import {API_KEY, API_URL, HOME_AD} from '../config';
 
@@ -158,7 +157,6 @@ export default function Home() {
           {Boolean(error) && (
             <ListItem
               topDivider
-              bottomDivider
               containerStyle={[
                 {
                   backgroundColor: colors.card,
@@ -166,8 +164,13 @@ export default function Home() {
                   borderBottomColor: colors.border,
                 },
               ]}>
+              <Avatar
+                rounded
+                containerStyle={{backgroundColor: '#424242'}}
+                icon={{name: 'priority-high', type: 'material', size: 24}}
+              />
               <ListItem.Content>
-                <ListItem.Title style={styles.title}>
+                <ListItem.Title style={styles.subtitle}>
                   {t('home.error')}
                 </ListItem.Title>
               </ListItem.Content>

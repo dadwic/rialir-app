@@ -33,6 +33,7 @@ export default function Home() {
   const direction = i18n.dir();
   const isRtl = direction === 'rtl';
   const [price, setPrice] = useState<any>({});
+  const [error, setError] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   const handlePress = async (url: string) => {
@@ -40,6 +41,7 @@ export default function Home() {
   };
 
   const fetchData = async () => {
+    setError(null);
     setRefreshing(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
@@ -82,8 +84,8 @@ export default function Home() {
       } else {
         Alert.alert(data?.message);
       }
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      setError(e);
     } finally {
       setRefreshing(false);
       clearTimeout(timeoutId);
@@ -153,6 +155,24 @@ export default function Home() {
         ))
       ) : (
         <React.Fragment>
+          {Boolean(error) && (
+            <ListItem
+              topDivider
+              bottomDivider
+              containerStyle={[
+                {
+                  backgroundColor: colors.card,
+                  borderTopColor: colors.border,
+                  borderBottomColor: colors.border,
+                },
+              ]}>
+              <ListItem.Content>
+                <ListItem.Title style={styles.title}>
+                  {t('home.error')}
+                </ListItem.Title>
+              </ListItem.Content>
+            </ListItem>
+          )}
           <ListItem
             topDivider
             bottomDivider
@@ -176,7 +196,7 @@ export default function Home() {
                 {t('home.try_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.try_irt ? (
+            {price?.try_irt && (
               <View>
                 <Text
                   style={[
@@ -190,8 +210,6 @@ export default function Home() {
                   {ccyFormat(price.try_irt?.sell)}
                 </Text>
               </View>
-            ) : (
-              <ActivityIndicator />
             )}
           </ListItem>
           <ListItem
@@ -216,7 +234,7 @@ export default function Home() {
                 {t('home.usdt_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.usdt_irt ? (
+            {price?.usdt_irt && (
               <View>
                 <Text
                   style={[
@@ -230,8 +248,6 @@ export default function Home() {
                   {ccyFormat(price.usdt_irt?.sell)}
                 </Text>
               </View>
-            ) : (
-              <ActivityIndicator />
             )}
           </ListItem>
           <ListItem
@@ -256,7 +272,7 @@ export default function Home() {
                 {t('home.usdt_try')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.usdt_try ? (
+            {price?.usdt_try && (
               <View>
                 <Text
                   style={[
@@ -270,8 +286,6 @@ export default function Home() {
                   {price.usdt_try?.sell}
                 </Text>
               </View>
-            ) : (
-              <ActivityIndicator />
             )}
           </ListItem>
           <ListItem
@@ -295,12 +309,10 @@ export default function Home() {
                 {t('home.btc_usdt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.btc_usdt ? (
+            {price?.btc_usdt && (
               <Text style={[styles.sell, {color: colors.text}]}>
                 {ccyFormat(price.btc_usdt)}
               </Text>
-            ) : (
-              <ActivityIndicator />
             )}
           </ListItem>
           <ListItem
@@ -326,12 +338,10 @@ export default function Home() {
                 {t('home.try_irt')}
               </ListItem.Subtitle>
             </ListItem.Content>
-            {price?.try_irt ? (
+            {price?.try_irt && (
               <Text style={[styles.sell, {color: colors.text}]}>
                 {ccyFormat(price.try_irt?.shop)}
               </Text>
-            ) : (
-              <ActivityIndicator />
             )}
           </ListItem>
           <BannerAd

@@ -49,7 +49,9 @@ export default function AppLayout() {
                 containerStyle={{marginBottom: -1}}
                 name={isConnected ? 'lock' : 'wifi-off'}
               />
-              <Text>rialir.com</Text>
+              <Text>
+                {isConnected ? 'rialir.com' : 'No Internet Connection'}
+              </Text>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

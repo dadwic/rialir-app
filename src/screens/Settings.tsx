@@ -139,7 +139,7 @@ export default function Settings() {
       </ListItem>
       <BannerAd
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        unitId={__DEV__ ? TestIds.APP_OPEN : SETTINGS_AD}
+        unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : SETTINGS_AD}
       />
       <Text
         style={[

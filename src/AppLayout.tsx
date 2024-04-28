@@ -1,7 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon, Text} from '@rneui/themed';
+import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import {useTranslation} from 'react-i18next';
 import {HeaderTitle} from '@react-navigation/elements';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -14,6 +15,18 @@ const Tab = createBottomTabNavigator();
 export default function AppLayout() {
   const {t, i18n} = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
+  const [isConnected, setConnected] = useState<boolean | null>(true);
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state: NetInfoState) => {
+      setConnected(state.isConnected);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -31,10 +44,10 @@ export default function AppLayout() {
           headerTitle: props => (
             <HeaderTitle {...props}>
               <Icon
-                name="lock"
                 size={16}
                 style={{marginRight: 4}}
                 containerStyle={{marginBottom: -1}}
+                name={isConnected ? 'lock' : 'wifi-off'}
               />
               <Text>rialir.com</Text>
             </HeaderTitle>

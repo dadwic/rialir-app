@@ -36,6 +36,7 @@ export default function AppLayout() {
           {fontWeight: '600', marginBottom: 4},
         ],
         tabBarIconStyle: [isRtl && {marginTop: 4}],
+        headerTitleAlign: 'center',
       }}>
       <Tab.Screen
         name="Home"

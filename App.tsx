@@ -15,7 +15,21 @@ function App(): React.JSX.Element {
     <SafeAreaProvider style={styles.container}>
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeProvider
-          theme={{mode: scheme as ThemeMode, darkColors, lightColors}}>
+          theme={{
+            mode: scheme as ThemeMode,
+            darkColors,
+            lightColors,
+            components: {
+              Avatar: () => ({
+                placeholderStyle: {
+                  backgroundColor: 'transparent',
+                },
+                source: {
+                  uri: 'data:image/png',
+                },
+              }),
+            },
+          }}>
           <AppLayout />
         </ThemeProvider>
       </NavigationContainer>

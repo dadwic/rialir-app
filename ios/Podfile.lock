@@ -1122,7 +1122,7 @@ PODS:
     - React-perflogger (= 0.73.5)
   - RNDeviceInfo (10.13.2):
     - React-Core
-  - RNGoogleMobileAds (13.2.0):
+  - RNGoogleMobileAds (13.2.1):
     - glog
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - GoogleUserMessagingPlatform (= 2.3.0)
@@ -1133,7 +1133,7 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - React-RCTImage
-  - RNVectorIcons (10.0.3):
+  - RNVectorIcons (10.1.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -1419,9 +1419,9 @@ SPEC CHECKSUMS:
   React-utils: 987a4526a2fc0acdfaf87888adfe0bf9d0452066
   ReactCommon: 2947b0bffd82ea0e58ca7928881152d4c6dae9af
   RNDeviceInfo: 42aadf1282ffa0a88dc38a504a7be145eb010dfa
-  RNGoogleMobileAds: 6a1d0ffbf5532bc0efad36414619fa5bbedc155d
+  RNGoogleMobileAds: a3c8d06747767bc34341abd6d8f064102bf20e8d
   RNScreens: 134a7511b12b8eb440b87aac21e36a71295d6024
-  RNVectorIcons: 73ab573085f65a572d3b6233e68996d4707fd505
+  RNVectorIcons: 96e8c5c45609932bb2f8347e1c709bcca0e95654
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 9e6a04eacbd94f97d94577017e9f23b3ab41cf6c
 

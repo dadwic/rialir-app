@@ -185,10 +185,7 @@ export default function Home() {
             />
             <ListItem.Content>
               <ListItem.Title style={styles.title}>TRY-IRT</ListItem.Title>
-              <ListItem.Subtitle
-                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-                {t('home.try_irt')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{t('home.try_irt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.try_irt && (
               <View>
@@ -222,10 +219,7 @@ export default function Home() {
             />
             <ListItem.Content>
               <ListItem.Title style={styles.title}>USDT-IRT</ListItem.Title>
-              <ListItem.Subtitle
-                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-                {t('home.usdt_irt')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{t('home.usdt_irt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.usdt_irt && (
               <View>
@@ -259,10 +253,7 @@ export default function Home() {
             />
             <ListItem.Content>
               <ListItem.Title style={styles.title}>USDT-TRY</ListItem.Title>
-              <ListItem.Subtitle
-                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-                {t('home.usdt_try')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{t('home.usdt_try')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.usdt_try && (
               <View>
@@ -296,10 +287,7 @@ export default function Home() {
             />
             <ListItem.Content>
               <ListItem.Title style={styles.title}>BTC-USDT</ListItem.Title>
-              <ListItem.Subtitle
-                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-                {t('home.btc_usdt')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{t('home.btc_usdt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.btc_usdt && (
               <Text style={[styles.sell, {color: colors.text}]}>
@@ -325,10 +313,7 @@ export default function Home() {
               <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
                 {t('home.shopping')}
               </ListItem.Title>
-              <ListItem.Subtitle
-                style={[styles.subtitle, isRtl && styles.Vazirmatn]}>
-                {t('home.try_irt')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{t('home.try_irt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.try_irt && (
               <Text style={[styles.sell, {color: colors.text}]}>
@@ -385,10 +370,6 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   title: {
-    fontSize: 16,
-  },
-  subtitle: {
-    fontWeight: 'bold',
     fontSize: 16,
   },
   mt8: {

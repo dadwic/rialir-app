@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {useColorScheme, StyleSheet} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
@@ -11,6 +12,9 @@ import AppLayout from './src/AppLayout';
 
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
+  const {i18n} = useTranslation();
+  const direction = i18n.dir();
+  const isRtl = direction === 'rtl';
   return (
     <SafeAreaProvider style={styles.container}>
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -20,6 +24,16 @@ function App(): React.JSX.Element {
             darkColors,
             lightColors,
             components: {
+              ListItemSubtitle: () => ({
+                style: {
+                  fontWeight: 'bold',
+                  fontSize: 16,
+                  ...(isRtl && {
+                    fontWeight: 'normal',
+                    fontFamily: 'Vazirmatn-Bold',
+                  }),
+                },
+              }),
               Avatar: () => ({
                 placeholderStyle: {
                   backgroundColor: 'transparent',

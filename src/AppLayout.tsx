@@ -32,7 +32,7 @@ export default function AppLayout() {
       initialRouteName="Home"
       screenOptions={{
         tabBarLabelStyle: [
-          isRtl && {fontFamily: 'Vazirmatn'},
+          isRtl && {fontFamily: 'Vazirmatn-Medium'},
           {fontWeight: '600', marginBottom: 4},
         ],
         tabBarIconStyle: [isRtl && {marginTop: 4}],
@@ -68,7 +68,7 @@ export default function AppLayout() {
         options={{
           headerTitle: t('settings.title'),
           tabBarLabel: t('settings.title'),
-          headerTitleStyle: [isRtl && {fontFamily: 'Vazirmatn'}],
+          headerTitleStyle: [isRtl && {fontFamily: 'Vazirmatn-Medium'}],
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />
           ),

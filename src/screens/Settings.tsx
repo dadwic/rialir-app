@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     height: 64,
   },
   Vazirmatn: {
-    fontFamily: 'Vazirmatn',
+    fontFamily: 'Vazirmatn-Medium',
   },
   ltr: {
     direction: 'ltr',

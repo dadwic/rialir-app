@@ -347,7 +347,7 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   Vazirmatn: {
-    fontFamily: 'Vazirmatn',
+    fontFamily: 'Vazirmatn-Medium',
   },
   textEnd: {
     textAlign: 'right',

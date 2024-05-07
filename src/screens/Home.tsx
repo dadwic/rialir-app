@@ -27,10 +27,11 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+const isRTL = I18nManager.isRTL;
+
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const isRTL = I18nManager.isRTL;
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
@@ -104,7 +105,6 @@ export default function Home() {
 
   return (
     <ScrollView
-      style={{direction: isRTL ? 'rtl' : 'ltr'}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>

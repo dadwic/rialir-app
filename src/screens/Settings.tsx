@@ -17,12 +17,12 @@ import {useTranslation} from 'react-i18next';
 import Storage, {LANG} from '../../storage';
 import {SETTINGS_AD} from '../config';
 
+const isRTL = I18nManager.isRTL;
+
 export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const direction = i18n.dir();
-  const isRtl = i18n.dir() === 'rtl';
-  const chevron = isRtl ? 'left' : 'right';
+  const chevron = isRTL ? 'left' : 'right';
 
   const toggleSwitch = () => {
     Appearance.setColorScheme(dark ? 'light' : 'dark');
@@ -41,7 +41,7 @@ export default function Settings() {
   };
 
   return (
-    <View style={{direction}}>
+    <View>
       <ListItem
         topDivider
         bottomDivider
@@ -55,7 +55,7 @@ export default function Settings() {
         ]}>
         <Icon name="dark-mode" />
         <ListItem.Content>
-          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+          <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
             {t('settings.darkMode')}
           </ListItem.Title>
         </ListItem.Content>
@@ -72,7 +72,7 @@ export default function Settings() {
         ]}>
         <Icon name="translate" />
         <ListItem.Content>
-          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+          <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
             {t('settings.language')}
           </ListItem.Title>
         </ListItem.Content>
@@ -103,7 +103,7 @@ export default function Settings() {
         ]}>
         <Icon name="language" />
         <ListItem.Content>
-          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+          <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
             {t('settings.web')}
           </ListItem.Title>
         </ListItem.Content>
@@ -121,7 +121,7 @@ export default function Settings() {
         ]}>
         <Icon name="report" />
         <ListItem.Content>
-          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+          <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
             {t('settings.report')}
           </ListItem.Title>
         </ListItem.Content>
@@ -139,7 +139,7 @@ export default function Settings() {
         ]}>
         <Icon name="alternate-email" />
         <ListItem.Content>
-          <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+          <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
             {t('settings.contact')}
           </ListItem.Title>
         </ListItem.Content>
@@ -152,7 +152,7 @@ export default function Settings() {
       <Text
         style={[
           styles.version,
-          isRtl && styles.Vazirmatn,
+          isRTL && styles.Vazirmatn,
           {color: dark ? 'grey' : '#424242'},
         ]}>
         {'🚀'} {t('settings.version')} {getVersion()}

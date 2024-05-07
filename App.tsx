@@ -1,6 +1,5 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useColorScheme, StyleSheet} from 'react-native';
+import {useColorScheme, StyleSheet, I18nManager} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {
@@ -10,11 +9,10 @@ import {
 } from '@react-navigation/native';
 import AppLayout from './src/AppLayout';
 
+const isRTL = I18nManager.isRTL;
+
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
-  const {i18n} = useTranslation();
-  const direction = i18n.dir();
-  const isRtl = direction === 'rtl';
   return (
     <SafeAreaProvider style={styles.container}>
       <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -28,7 +26,7 @@ function App(): React.JSX.Element {
                 style: {
                   fontWeight: 'bold',
                   fontSize: 16,
-                  ...(isRtl && {
+                  ...(isRTL && {
                     fontWeight: 'normal',
                     fontFamily: 'Vazirmatn-Bold',
                   }),

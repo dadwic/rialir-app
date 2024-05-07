@@ -7,8 +7,8 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import Storage, {LANG} from '../../storage';
 import {SETTINGS_AD} from '../config';
-import Storage, {LANG} from '../storage';
 
 export default function Settings() {
   const {colors, dark} = useTheme();

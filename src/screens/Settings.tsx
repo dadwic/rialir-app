@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
+import RNRestart from 'react-native-restart';
 import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
@@ -7,6 +8,7 @@ import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {SETTINGS_AD} from '../config';
+import Storage, {LANG} from '../storage';
 
 export default function Settings() {
   const {colors, dark} = useTheme();
@@ -26,6 +28,8 @@ export default function Settings() {
   const handleChangeLanguage = async (index: number) => {
     const lng = index === 0 ? 'en' : 'fa';
     i18n.changeLanguage(lng);
+    Storage.set(LANG, lng);
+    RNRestart.restart();
   };
 
   return (

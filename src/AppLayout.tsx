@@ -9,12 +9,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import HomeScreen from './screens/Home';
+import {I18nManager} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
-  const {t, i18n} = useTranslation();
-  const isRtl = i18n.dir() === 'rtl';
+  const {t} = useTranslation();
+  const isRTL = I18nManager.isRTL;
   const [isConnected, setConnected] = useState<boolean | null>(true);
 
   useEffect(() => {
@@ -32,10 +33,10 @@ export default function AppLayout() {
       initialRouteName="Home"
       screenOptions={{
         tabBarLabelStyle: [
-          isRtl && {fontFamily: 'Vazirmatn-Medium'},
+          isRTL && {fontFamily: 'Vazirmatn-Medium'},
           {fontWeight: '600', marginBottom: 4},
         ],
-        tabBarIconStyle: [isRtl && {marginTop: 4}],
+        tabBarIconStyle: [isRTL && {marginTop: 4}],
         headerTitleAlign: 'center',
       }}>
       <Tab.Screen
@@ -68,7 +69,7 @@ export default function AppLayout() {
         options={{
           headerTitle: t('settings.title'),
           tabBarLabel: t('settings.title'),
-          headerTitleStyle: [isRtl && {fontFamily: 'Vazirmatn-Medium'}],
+          headerTitleStyle: [isRTL && {fontFamily: 'Vazirmatn-Medium'}],
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="settings" size={size} color={color} />
           ),

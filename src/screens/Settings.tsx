@@ -2,7 +2,14 @@
 import React from 'react';
 import RNRestart from 'react-native-restart';
 import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
-import {StyleSheet, View, Text, Linking, Appearance} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Linking,
+  Appearance,
+  I18nManager,
+} from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -27,6 +34,7 @@ export default function Settings() {
 
   const handleChangeLanguage = async (index: number) => {
     const lng = index === 0 ? 'en' : 'fa';
+    I18nManager.forceRTL(lng === 'fa');
     i18n.changeLanguage(lng);
     Storage.set(LANG, lng);
     RNRestart.restart();

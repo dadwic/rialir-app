@@ -19,6 +19,7 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
+  I18nManager,
 } from 'react-native';
 import {API_KEY, API_URL, HOME_AD} from '../config';
 
@@ -29,8 +30,7 @@ const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
-  const direction = i18n.dir();
-  const isRtl = direction === 'rtl';
+  const isRTL = I18nManager.isRTL;
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
@@ -104,7 +104,7 @@ export default function Home() {
 
   return (
     <ScrollView
-      style={{direction}}
+      style={{direction: isRTL ? 'rtl' : 'ltr'}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
@@ -158,11 +158,11 @@ export default function Home() {
             <ListItem onPress={fetchData} containerStyle={styles.error}>
               <ListItem.Content>
                 <ListItem.Title
-                  style={[styles.errorMessage, isRtl && styles.Vazirmatn]}>
+                  style={[styles.errorMessage, isRTL && styles.Vazirmatn]}>
                   {t('home.error')}
                 </ListItem.Title>
               </ListItem.Content>
-              <Text style={[styles.retry, isRtl && styles.Vazirmatn]}>
+              <Text style={[styles.retry, isRTL && styles.Vazirmatn]}>
                 {t('home.retry')}
               </Text>
             </ListItem>
@@ -193,7 +193,7 @@ export default function Home() {
                   style={[
                     styles.buy,
                     {color: colors.text},
-                    !isRtl && styles.textEnd,
+                    !isRTL && styles.textEnd,
                   ]}>
                   {ccyFormat(price.try_irt?.buy)}
                 </Text>
@@ -227,7 +227,7 @@ export default function Home() {
                   style={[
                     styles.buy,
                     {color: colors.text},
-                    !isRtl && styles.textEnd,
+                    !isRTL && styles.textEnd,
                   ]}>
                   {ccyFormat(price.usdt_irt?.buy)}
                 </Text>
@@ -261,7 +261,7 @@ export default function Home() {
                   style={[
                     styles.buy,
                     {color: colors.text},
-                    !isRtl && styles.textEnd,
+                    !isRTL && styles.textEnd,
                   ]}>
                   {price.usdt_try?.buy}
                 </Text>
@@ -310,7 +310,7 @@ export default function Home() {
               icon={{name: 'currency-lira', type: 'material', size: 24}}
             />
             <ListItem.Content>
-              <ListItem.Title style={[styles.text, isRtl && styles.Vazirmatn]}>
+              <ListItem.Title style={[styles.text, isRTL && styles.Vazirmatn]}>
                 {t('home.shopping')}
               </ListItem.Title>
               <ListItem.Subtitle>{t('home.try_irt')}</ListItem.Subtitle>
@@ -330,11 +330,11 @@ export default function Home() {
               style={[
                 styles.mt8,
                 styles.time,
-                isRtl && styles.Vazirmatn,
+                isRTL && styles.Vazirmatn,
                 {color: dark ? 'grey' : '#424242'},
               ]}>
               {t('home.lastUpdate')}
-              {isRtl
+              {isRTL
                 ? moment(price.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')
                 : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
             </Text>

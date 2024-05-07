@@ -35,7 +35,8 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Vazirmatn.ttf</string>
+		<string>Vazirmatn-Medium.ttf</string>
+		<string>Vazirmatn-Bold.ttf</string>
 		<string>MaterialIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

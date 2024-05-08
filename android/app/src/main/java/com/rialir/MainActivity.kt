@@ -1,12 +1,13 @@
 package com.rialir
 
 import android.os.Bundle
-import com.tencent.mmkv.MMKV
+import android.content.res.Configuration
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import com.facebook.react.modules.i18nmanager.I18nUtil
+import java.util.Locale
 
 class MainActivity : ReactActivity() {
 
@@ -20,11 +21,15 @@ class MainActivity : ReactActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState);
 
-    val mmkv = MMKV.defaultMMKV()
-    val lang = mmkv.decodeString("language", "fa")
+    // Set default locale
+    val locale = Locale("fa")
+    Locale.setDefault(locale)
 
-    val sharedI18nUtilInstance = I18nUtil.getInstance()
-    sharedI18nUtilInstance.allowRTL(applicationContext, true)
+    val config = Configuration()
+    config.locale = locale
+
+    // Apply the locale configuration to the application context
+    resources.updateConfiguration(config, resources.displayMetrics)
   }
 
   /**

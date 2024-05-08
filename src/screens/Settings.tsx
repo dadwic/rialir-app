@@ -34,7 +34,8 @@ export default function Settings() {
 
   const handleChangeLanguage = async (index: number) => {
     const lng = index === 0 ? 'en' : 'fa';
-    I18nManager.forceRTL(lng === 'fa');
+    I18nManager.forceRTL(Boolean(index));
+    I18nManager.allowRTL(Boolean(index));
     i18n.changeLanguage(lng);
     Storage.set('language', lng);
     RNRestart.restart();

@@ -13,6 +13,11 @@ const isRTL = I18nManager.isRTL;
 
 const linking = {
   prefixes: ['rialir://', 'https://rialir.com', 'https://*.rialir.com'],
+  config: {
+    screens: {
+      Home: '*',
+    },
+  },
 };
 
 function App(): React.JSX.Element {

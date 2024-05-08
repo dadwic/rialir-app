@@ -6,6 +6,5 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="28"
         tools:ignore="GoogleAppIndexingWarning"
-        android:supportsRtl="true"
-        android:locale="fa" />
+        android:supportsRtl="true" />
 </manifest>

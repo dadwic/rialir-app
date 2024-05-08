@@ -1,6 +1,7 @@
 package com.rialir
 
 import android.os.Bundle
+import com.tencent.mmkv.MMKV
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -17,7 +18,10 @@ class MainActivity : ReactActivity() {
 
   // Required for react-navigation to work on Android
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(null);
+    super.onCreate(savedInstanceState);
+
+    val mmkv = MMKV.defaultMMKV()
+    val lang = mmkv.decodeString("language", "fa")
 
     val sharedI18nUtilInstance = I18nUtil.getInstance()
     sharedI18nUtilInstance.allowRTL(applicationContext, true)

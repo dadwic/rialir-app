@@ -42,9 +42,9 @@
 		41E963A9651DF4115CE72C12 /* Pods-rialir-rialirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.debug.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rialir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir.release.xcconfig"; path = "Target Support Files/Pods-rialir/Pods-rialir.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rialir-rialirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rialir-rialirTests.debug.xcconfig"; path = "Target Support Files/Pods-rialir-rialirTests/Pods-rialir-rialirTests.debug.xcconfig"; sourceTree = "<group>"; };
-		800EF3E72BEA825B00CBEB67 /* Vazirmatn-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vazirmatn-Bold.ttf"; sourceTree = "<group>"; };
-		800EF3E92BEA826700CBEB67 /* Vazirmatn-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vazirmatn-Medium.ttf"; sourceTree = "<group>"; };
 		801602DC2BB726950056607C /* rialir.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = rialir.entitlements; path = rialir/rialir.entitlements; sourceTree = "<group>"; };
+		802760962BEB994E00802FDF /* Vazirmatn-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vazirmatn-Bold.ttf"; path = "fonts/Vazirmatn-Bold.ttf"; sourceTree = "<group>"; };
+		802760972BEB994E00802FDF /* Vazirmatn-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vazirmatn-Medium.ttf"; path = "fonts/Vazirmatn-Medium.ttf"; sourceTree = "<group>"; };
 		8047EA4B2BCEFA6D0098A4F3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -121,9 +121,9 @@
 		807D049D2B94939C004E0796 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				802760962BEB994E00802FDF /* Vazirmatn-Bold.ttf */,
+				802760972BEB994E00802FDF /* Vazirmatn-Medium.ttf */,
 				80EF65352B94A4BC0086D596 /* MaterialIcons.ttf */,
-				800EF3E92BEA826700CBEB67 /* Vazirmatn-Medium.ttf */,
-				800EF3E72BEA825B00CBEB67 /* Vazirmatn-Bold.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";

@@ -58,7 +58,7 @@ export default function Home() {
       if (res.ok) {
         setPrice(data);
         if (data?.appUpdate) {
-          if (data.appUpdate?.minAppVersion !== getVersion()) {
+          if (data.appUpdate?.minAppVersion?.[Platform.OS] !== getVersion()) {
             Alert.alert(
               data.appUpdate?.alertTitle,
               data.appUpdate?.alertMessage,

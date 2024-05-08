@@ -44,7 +44,7 @@ export default function Home() {
     setError(null);
     setRefreshing(true);
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const res = await fetch(API_URL, {

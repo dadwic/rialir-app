@@ -15,6 +15,8 @@
 		66A40652596032748436B7A3 /* libPods-rialir-rialirTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BE19D6D0BEF945B9EE12F1 /* libPods-rialir-rialirTests.a */; };
 		8047EA4C2BCEFA6D0098A4F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8047EA4B2BCEFA6D0098A4F3 /* LaunchScreen.storyboard */; };
 		804C9E242BC4B9950072617A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 804C9E232BC4B9950072617A /* PrivacyInfo.xcprivacy */; };
+		80F018082BEBA66900285809 /* Vazirmatn-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 802760962BEB994E00802FDF /* Vazirmatn-Bold.ttf */; };
+		80F018092BEBA66B00285809 /* Vazirmatn-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 802760972BEB994E00802FDF /* Vazirmatn-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +272,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F018082BEBA66900285809 /* Vazirmatn-Bold.ttf in Resources */,
+				80F018092BEBA66B00285809 /* Vazirmatn-Medium.ttf in Resources */,
 				804C9E242BC4B9950072617A /* PrivacyInfo.xcprivacy in Resources */,
 				8047EA4C2BCEFA6D0098A4F3 /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,

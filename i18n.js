@@ -3,14 +3,14 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import enTranslation from './locales/en/translation.json';
 import faTranslation from './locales/fa/translation.json';
-import Storage, {LANG} from './storage';
+import Storage from './storage';
 
 i18n
   .use({
     type: 'languageDetector',
     async: false,
     init: () => {},
-    detect: () => Storage.getString(LANG),
+    detect: () => Storage.getString('language'),
   })
   .use(initReactI18next)
   .init({

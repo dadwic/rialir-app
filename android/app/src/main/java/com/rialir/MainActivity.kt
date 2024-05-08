@@ -1,7 +1,5 @@
 package com.rialir
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -21,13 +19,8 @@ class MainActivity : ReactActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(null);
 
-    window.navigationBarColor = Color.TRANSPARENT
-
-    if (Build.VERSION_CODES.Q <= Build.VERSION.SDK_INT) {
-      window.isNavigationBarContrastEnforced = false
-    }
     val sharedI18nUtilInstance = I18nUtil.getInstance()
-    sharedI18nUtilInstance.allowRTL(applicationContext, false)
+    sharedI18nUtilInstance.allowRTL(applicationContext, true)
   }
 
   /**

@@ -14,8 +14,8 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import Storage, {LANG} from '../../storage';
 import {SETTINGS_AD} from '../config';
+import Storage from '../../storage';
 
 const isRTL = I18nManager.isRTL;
 
@@ -36,7 +36,7 @@ export default function Settings() {
     const lng = index === 0 ? 'en' : 'fa';
     I18nManager.forceRTL(lng === 'fa');
     i18n.changeLanguage(lng);
-    Storage.set(LANG, lng);
+    Storage.set('language', lng);
     RNRestart.restart();
   };
 

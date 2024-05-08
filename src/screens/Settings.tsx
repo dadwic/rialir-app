@@ -3,12 +3,13 @@ import React from 'react';
 import RNRestart from 'react-native-restart';
 import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {
-  StyleSheet,
   View,
   Text,
   Linking,
+  StyleSheet,
   Appearance,
   I18nManager,
+  NativeModules,
 } from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
@@ -38,7 +39,11 @@ export default function Settings() {
     Storage.set('language', lng);
     I18nManager.forceRTL(Boolean(index));
     I18nManager.allowRTL(Boolean(index));
-    RNRestart.restart();
+    if (__DEV__) {
+      NativeModules.DevSettings.reload();
+    } else {
+      RNRestart.restart();
+    }
   };
 
   return (

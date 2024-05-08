@@ -11,11 +11,17 @@ import AppLayout from './src/AppLayout';
 
 const isRTL = I18nManager.isRTL;
 
+const linking = {
+  prefixes: ['rialir://', 'https://rialir.com', 'https://*.rialir.com'],
+};
+
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
   return (
     <SafeAreaProvider style={styles.container}>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer
+        linking={linking}
+        theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemeProvider
           theme={{
             mode: scheme as ThemeMode,

@@ -65,7 +65,7 @@ export default function Settings() {
             {t('settings.darkMode')}
           </ListItem.Title>
         </ListItem.Content>
-        <Switch value={dark} onValueChange={toggleSwitch} style={styles.ltr} />
+        <Switch value={dark} onValueChange={toggleSwitch} />
       </ListItem>
       <ListItem
         bottomDivider
@@ -173,9 +173,6 @@ const styles = StyleSheet.create({
   },
   Vazirmatn: {
     fontFamily: 'Vazirmatn-Medium',
-  },
-  ltr: {
-    direction: 'ltr',
   },
   version: {
     textAlign: 'center',

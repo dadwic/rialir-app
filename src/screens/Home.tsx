@@ -71,11 +71,7 @@ export default function Home() {
                   isPreferred: true,
                   text: data.appUpdate?.alertButton,
                   onPress: () =>
-                    handlePress(
-                      Platform.OS === 'ios'
-                        ? data.appUpdate?.iosAppLink
-                        : data.appUpdate?.androidAppLink,
-                    ),
+                    handlePress(data.appUpdate?.appLink?.[Platform.OS]),
                 },
               ],
             );

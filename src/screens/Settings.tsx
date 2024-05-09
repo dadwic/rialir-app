@@ -18,11 +18,10 @@ import {useTranslation} from 'react-i18next';
 import {SETTINGS_AD} from '../config';
 import Storage from '../../storage';
 
-const isRTL = I18nManager.isRTL;
-
 export default function Settings() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
   const chevron = isRTL ? 'left' : 'right';
 
   const toggleSwitch = () => {

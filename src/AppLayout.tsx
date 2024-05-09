@@ -9,14 +9,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import HomeScreen from './screens/Home';
-import {I18nManager} from 'react-native';
-
-const isRTL = I18nManager.isRTL;
 
 const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
   const [isConnected, setConnected] = useState<boolean | null>(true);
 
   useEffect(() => {

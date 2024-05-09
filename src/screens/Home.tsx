@@ -19,7 +19,6 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
-  I18nManager,
 } from 'react-native';
 import {API_KEY, API_URL, HOME_AD} from '../config';
 
@@ -27,11 +26,10 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const isRTL = I18nManager.isRTL;
-
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);

@@ -42,13 +42,13 @@ export default function AppLayout() {
         name="Home"
         component={HomeScreen}
         options={{
-          headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
+          headerTitleStyle: {fontWeight: 'bold', letterSpacing: 1},
           headerTitle: props => (
             <HeaderTitle {...props}>
               <Icon
                 size={16}
                 name={isConnected ? 'lock' : 'cloud-off'}
-                style={{marginHorizontal: 4, marginBottom: -1}}
+                style={{marginRight: 4, marginBottom: -1}}
               />
               {isConnected ? 'rialir.com' : 'No Internet Connection'}
             </HeaderTitle>

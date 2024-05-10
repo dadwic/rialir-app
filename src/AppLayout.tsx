@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {Icon, ListItem} from '@rneui/themed';
+import {Icon} from '@rneui/themed';
 import {useTranslation} from 'react-i18next';
 import {HeaderTitle} from '@react-navigation/elements';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -42,18 +42,15 @@ export default function AppLayout() {
         name="Home"
         component={HomeScreen}
         options={{
+          headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
           headerTitle: props => (
             <HeaderTitle {...props}>
-              <ListItem pad={4}>
-                <Icon size={16} name={isConnected ? 'lock' : 'cloud-off'} />
-                <ListItem.Content>
-                  <ListItem.Title
-                    style={{fontWeight: 'bold', letterSpacing: 0.5}}>
-                    {isConnected ? 'rialir.com' : 'No Internet Connection'}
-                  </ListItem.Title>
-                </ListItem.Content>
-                <ListItem.Chevron />
-              </ListItem>
+              <Icon
+                size={16}
+                name={isConnected ? 'lock' : 'cloud-off'}
+                style={{marginHorizontal: 4, marginBottom: -1}}
+              />
+              {isConnected ? 'rialir.com' : 'No Internet Connection'}
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),

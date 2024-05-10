@@ -48,7 +48,7 @@ export default function AppLayout() {
               <Icon
                 size={16}
                 name={isConnected ? 'lock' : 'cloud-off'}
-                style={{marginRight: 4, marginBottom: -1}}
+                style={{marginHorizontal: 4, marginBottom: -1}}
               />
               {isConnected ? 'rialir.com' : 'No Internet Connection'}
             </HeaderTitle>

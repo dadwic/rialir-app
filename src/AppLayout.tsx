@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {Icon, Text} from '@rneui/themed';
+import {Icon, ListItem} from '@rneui/themed';
 import {useTranslation} from 'react-i18next';
 import {HeaderTitle} from '@react-navigation/elements';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SettingsScreen from './screens/Settings';
 import HomeScreen from './screens/Home';
 
@@ -44,19 +44,19 @@ export default function AppLayout() {
         options={{
           headerTitle: props => (
             <HeaderTitle {...props}>
-              <Icon
-                size={16}
-                style={{marginRight: 4}}
-                containerStyle={{marginBottom: -1}}
-                name={isConnected ? 'lock' : 'cloud-off'}
-              />
-              <Text>
-                {isConnected ? 'rialir.com' : 'No Internet Connection'}
-              </Text>
+              <ListItem pad={4}>
+                <Icon size={16} name={isConnected ? 'lock' : 'cloud-off'} />
+                <ListItem.Content>
+                  <ListItem.Title
+                    style={{fontWeight: 'bold', letterSpacing: 0.5}}>
+                    {isConnected ? 'rialir.com' : 'No Internet Connection'}
+                  </ListItem.Title>
+                </ListItem.Content>
+                <ListItem.Chevron />
+              </ListItem>
             </HeaderTitle>
           ),
           tabBarLabel: t('home.title'),
-          headerTitleStyle: {fontWeight: 'bold', letterSpacing: 0.5},
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="currency-exchange" size={size} color={color} />
           ),

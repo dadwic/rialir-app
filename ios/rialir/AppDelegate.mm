@@ -14,6 +14,7 @@
   self.initialProps = @{};
 
   [[RCTI18nUtil sharedInstance] allowRTL:YES];
+  [[RCTI18nUtil sharedInstance] forceRTL:YES];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

@@ -6,6 +6,7 @@ import {
   View,
   Text,
   Linking,
+  Platform,
   StyleSheet,
   Appearance,
   I18nManager,
@@ -152,7 +153,7 @@ export default function Settings() {
       </ListItem>
       <BannerAd
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : SETTINGS_AD}
+        unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : SETTINGS_AD[Platform.OS]}
       />
       <Text
         style={[

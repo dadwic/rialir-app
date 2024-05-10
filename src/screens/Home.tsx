@@ -317,7 +317,7 @@ export default function Home() {
           </ListItem>
           <BannerAd
             size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-            unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : HOME_AD}
+            unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : HOME_AD[Platform.OS]}
           />
           {price?.updated_at && (
             <Text

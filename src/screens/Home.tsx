@@ -357,7 +357,6 @@ const styles = StyleSheet.create({
   },
   errorMessage: {
     color: 'white',
-    fontWeight: '500',
   },
   retry: {
     color: 'white',

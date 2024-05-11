@@ -42,11 +42,10 @@ function App(): React.JSX.Element {
               ListItemSubtitle: () => ({
                 style: [
                   {
-                    fontWeight: 'bold',
                     fontSize: 16,
+                    fontWeight: 'bold',
                   },
-                  isRTL && styles.Vazirmatn,
-                  isRTL && Platform.OS === 'android' && styles.normal,
+                  isRTL && styles.listItemSubtitle,
                 ],
               }),
               Avatar: () => ({
@@ -70,11 +69,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  Vazirmatn: {
+  listItemSubtitle: {
     fontFamily: 'Vazirmatn-Bold',
-  },
-  normal: {
-    fontWeight: 'normal',
+    ...(Platform.OS === 'android' && {fontWeight: 'normal'}),
   },
 });
 

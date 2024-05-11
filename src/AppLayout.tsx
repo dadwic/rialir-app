@@ -36,10 +36,9 @@ export default function AppLayout() {
           direction,
           paddingBottom: 4,
         },
-        tabBarLabelStyle: [
-          {fontWeight: 'bold'},
-          isRTL && {fontFamily: 'Vazirmatn-Bold'},
-        ],
+        tabBarLabelStyle: isRTL
+          ? {fontFamily: 'Vazirmatn-Bold'}
+          : {fontWeight: 'bold'},
         headerTitleAlign: 'center',
       }}>
       <Tab.Screen

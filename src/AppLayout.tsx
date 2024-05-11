@@ -14,7 +14,8 @@ const Tab = createBottomTabNavigator();
 
 export default function AppLayout() {
   const {t, i18n} = useTranslation();
-  const isRTL = i18n.dir() === 'rtl';
+  const direction = i18n.dir();
+  const isRTL = direction === 'rtl';
   const [isConnected, setConnected] = useState<boolean | null>(true);
 
   useEffect(() => {
@@ -31,7 +32,10 @@ export default function AppLayout() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarStyle: {marginBottom: 4},
+        tabBarStyle: {
+          direction,
+          marginBottom: 4,
+        },
         tabBarLabelStyle: [
           {fontWeight: '600'},
           isRTL && {fontFamily: 'Vazirmatn-Medium'},

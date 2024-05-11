@@ -39,6 +39,9 @@ function App(): React.JSX.Element {
               ListItem: () => ({
                 containerStyle: {direction},
               }),
+              ListItemButtonGroup: () => ({
+                textStyle: {fontFamily: 'Vazirmatn-Medium'},
+              }),
               ListItemSubtitle: () => ({
                 style: [
                   {

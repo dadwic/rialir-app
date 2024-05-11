@@ -22,7 +22,8 @@ const linking = {
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
   const {i18n} = useTranslation();
-  const isRTL = i18n.dir() === 'rtl';
+  const direction = i18n.dir();
+  const isRTL = direction === 'rtl';
 
   return (
     <SafeAreaProvider style={styles.container}>
@@ -35,6 +36,9 @@ function App(): React.JSX.Element {
             darkColors,
             lightColors,
             components: {
+              ListItem: () => ({
+                containerStyle: {direction},
+              }),
               ListItemSubtitle: () => ({
                 style: [
                   {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useColorScheme, StyleSheet, I18nManager} from 'react-native';
+import {useColorScheme, StyleSheet, I18nManager, Platform} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {
@@ -34,14 +34,14 @@ function App(): React.JSX.Element {
             lightColors,
             components: {
               ListItemSubtitle: () => ({
-                style: {
-                  fontWeight: 'bold',
-                  fontSize: 16,
-                  ...(isRTL && {
-                    fontWeight: 'normal',
-                    fontFamily: 'Vazirmatn-Bold',
-                  }),
-                },
+                style: [
+                  {
+                    fontWeight: 'bold',
+                    fontSize: 16,
+                  },
+                  isRTL && styles.Vazirmatn,
+                  isRTL && Platform.OS === 'android' && styles.normal,
+                ],
               }),
               Avatar: () => ({
                 placeholderStyle: {
@@ -63,6 +63,12 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  Vazirmatn: {
+    fontFamily: 'Vazirmatn-Bold',
+  },
+  normal: {
+    fontWeight: 'normal',
   },
 });
 

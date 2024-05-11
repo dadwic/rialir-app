@@ -31,11 +31,11 @@ export default function AppLayout() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+        tabBarStyle: {marginBottom: 4},
         tabBarLabelStyle: [
+          {fontWeight: '600'},
           isRTL && {fontFamily: 'Vazirmatn-Medium'},
-          {fontWeight: '600', marginBottom: 4},
         ],
-        tabBarIconStyle: [isRTL && {marginTop: 4}],
         headerTitleAlign: 'center',
       }}>
       <Tab.Screen

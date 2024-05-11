@@ -38,7 +38,7 @@ export default function AppLayout() {
         tabBarIconStyle: {marginTop: 2},
         tabBarLabelStyle: [
           {marginBottom: 2},
-          isRTL ? {fontFamily: 'Vazirmatn-Bold'} : {fontWeight: 'bold'},
+          isRTL ? {fontFamily: 'Vazirmatn-Medium'} : {fontWeight: '500'},
         ],
         headerTitleAlign: 'center',
       }}>
@@ -46,7 +46,7 @@ export default function AppLayout() {
         name="Home"
         component={HomeScreen}
         options={{
-          headerTitleStyle: {fontWeight: 'bold', letterSpacing: 1},
+          headerTitleStyle: {fontWeight: '600', letterSpacing: 1},
           headerTitle: props => (
             <HeaderTitle {...props}>
               <Icon

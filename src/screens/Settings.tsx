@@ -10,7 +10,6 @@ import {
   StyleSheet,
   Appearance,
   I18nManager,
-  NativeModules,
 } from 'react-native';
 import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
@@ -37,11 +36,9 @@ export default function Settings() {
     const lng = index === 0 ? 'en' : 'fa';
     i18n.changeLanguage(lng);
     Storage.set('language', lng);
-    I18nManager.forceRTL(Boolean(index));
-    I18nManager.allowRTL(Boolean(index));
-    if (__DEV__) {
-      NativeModules.DevSettings.reload();
-    } else {
+    if (Platform.OS === 'android') {
+      I18nManager.forceRTL(Boolean(index));
+      I18nManager.allowRTL(Boolean(index));
       RNRestart.restart();
     }
   };

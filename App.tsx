@@ -1,5 +1,6 @@
 import React from 'react';
-import {useColorScheme, StyleSheet, I18nManager, Platform} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useColorScheme, StyleSheet, Platform} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeMode, ThemeProvider, darkColors, lightColors} from '@rneui/themed';
 import {
@@ -8,8 +9,6 @@ import {
   DarkTheme,
 } from '@react-navigation/native';
 import AppLayout from './src/AppLayout';
-
-const isRTL = I18nManager.isRTL;
 
 const linking = {
   prefixes: ['rialir://', 'https://rialir.com', 'https://*.rialir.com'],
@@ -22,6 +21,9 @@ const linking = {
 
 function App(): React.JSX.Element {
   const scheme = useColorScheme();
+  const {i18n} = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
+
   return (
     <SafeAreaProvider style={styles.container}>
       <NavigationContainer

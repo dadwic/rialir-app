@@ -37,8 +37,8 @@ export default function AppLayout() {
           marginBottom: 4,
         },
         tabBarLabelStyle: [
-          {fontWeight: '600'},
-          isRTL && {fontFamily: 'Vazirmatn-Medium'},
+          {fontWeight: 'bold'},
+          isRTL && {fontFamily: 'Vazirmatn-Bold'},
         ],
         headerTitleAlign: 'center',
       }}>

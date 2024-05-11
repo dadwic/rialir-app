@@ -34,7 +34,7 @@ export default function AppLayout() {
       screenOptions={{
         tabBarStyle: {
           direction,
-          marginBottom: 4,
+          paddingBottom: 4,
         },
         tabBarLabelStyle: [
           {fontWeight: 'bold'},

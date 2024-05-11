@@ -34,12 +34,12 @@ export default function AppLayout() {
       screenOptions={{
         tabBarStyle: {
           direction,
-          paddingTop: 4,
-          paddingBottom: 4,
         },
-        tabBarLabelStyle: isRTL
-          ? {fontFamily: 'Vazirmatn-Bold'}
-          : {fontWeight: 'bold'},
+        tabBarIconStyle: {marginTop: 2},
+        tabBarLabelStyle: [
+          {marginBottom: 2},
+          isRTL ? {fontFamily: 'Vazirmatn-Bold'} : {fontWeight: 'bold'},
+        ],
         headerTitleAlign: 'center',
       }}>
       <Tab.Screen

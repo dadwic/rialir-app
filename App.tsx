@@ -44,11 +44,8 @@ function App(): React.JSX.Element {
               }),
               ListItemSubtitle: () => ({
                 style: [
-                  {
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                  },
-                  isRTL && styles.listItemSubtitle,
+                  {fontSize: 16},
+                  isRTL ? {fontFamily: 'Vazirmatn-Bold'} : {fontWeight: 'bold'},
                 ],
               }),
               Avatar: () => ({

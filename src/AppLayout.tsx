@@ -34,6 +34,7 @@ export default function AppLayout() {
       screenOptions={{
         tabBarStyle: {
           direction,
+          paddingTop: 4,
           paddingBottom: 4,
         },
         tabBarLabelStyle: isRTL

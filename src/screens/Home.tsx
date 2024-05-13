@@ -182,13 +182,8 @@ export default function Home() {
               <ListItem.Subtitle>{t('home.try_irt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.try_irt && (
-              <View>
-                <Text
-                  style={[
-                    styles.buy,
-                    {color: colors.text},
-                    !isRTL && styles.textEnd,
-                  ]}>
+              <View style={styles.flexEnd}>
+                <Text style={[styles.buy, {color: colors.text}]}>
                   {ccyFormat(price.try_irt?.buy)}
                 </Text>
                 <Text style={[styles.sell, {color: colors.text}]}>
@@ -216,13 +211,8 @@ export default function Home() {
               <ListItem.Subtitle>{t('home.usdt_irt')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.usdt_irt && (
-              <View>
-                <Text
-                  style={[
-                    styles.buy,
-                    {color: colors.text},
-                    !isRTL && styles.textEnd,
-                  ]}>
+              <View style={styles.flexEnd}>
+                <Text style={[styles.buy, {color: colors.text}]}>
                   {ccyFormat(price.usdt_irt?.buy)}
                 </Text>
                 <Text style={[styles.sell, {color: colors.text}]}>
@@ -250,13 +240,8 @@ export default function Home() {
               <ListItem.Subtitle>{t('home.usdt_try')}</ListItem.Subtitle>
             </ListItem.Content>
             {price?.usdt_try && (
-              <View>
-                <Text
-                  style={[
-                    styles.buy,
-                    {color: colors.text},
-                    !isRTL && styles.textEnd,
-                  ]}>
+              <View style={styles.flexEnd}>
+                <Text style={[styles.buy, {color: colors.text}]}>
                   {price.usdt_try?.buy}
                 </Text>
                 <Text style={[styles.sell, {color: colors.text}]}>
@@ -343,8 +328,8 @@ const styles = StyleSheet.create({
   Vazirmatn: {
     fontFamily: 'Vazirmatn-Medium',
   },
-  textEnd: {
-    textAlign: 'right',
+  flexEnd: {
+    alignItems: 'flex-end',
   },
   listItem: {
     height: 80,

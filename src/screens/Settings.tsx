@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   },
   version: {
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 16,
     fontSize: 16,
   },
   text: {

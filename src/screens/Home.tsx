@@ -3,9 +3,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
-  AdEventType,
-  InterstitialAd,
   TestIds,
+  RewardedAd,
+  RewardedAdEventType,
 } from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
@@ -30,10 +30,8 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : HOME_AD[Platform.OS];
-const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-  keywords: ['fashion', 'clothing'],
-});
+const adUnitId = __DEV__ ? TestIds.REWARDED : HOME_AD[Platform.OS];
+const rewarded = RewardedAd.createForAdRequest(adUnitId);
 
 export default function Home() {
   const {colors, dark} = useTheme();
@@ -41,45 +39,11 @@ export default function Home() {
   const isRTL = i18n.dir() === 'rtl';
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
-  const [adLoaded, setAdLoaded] = useState<boolean>(false);
+  const [_adLoaded, setAdLoaded] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(true);
 
   const handlePress = async (url: string) => {
     await Linking.openURL(url);
-  };
-
-  const loadAd = () => {
-    const unsubscribeLoaded = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {
-        setAdLoaded(true);
-        interstitial.show();
-      },
-    );
-
-    const unsubscribeClicked = interstitial.addAdEventListener(
-      AdEventType.CLOSED,
-      () => setAdLoaded(false),
-    );
-
-    const unsubscribeClosed = interstitial.addAdEventListener(
-      AdEventType.CLOSED,
-      () => setAdLoaded(false),
-    );
-
-    const unsubscribeError = interstitial.addAdEventListener(
-      AdEventType.ERROR,
-      err => console.error(err),
-    );
-
-    interstitial.load();
-
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeClicked();
-      unsubscribeClosed();
-      unsubscribeError();
-    };
   };
 
   const fetchData = async () => {
@@ -87,10 +51,6 @@ export default function Home() {
     setRefreshing(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-    if (adLoaded) {
-      interstitial.show();
-    }
 
     try {
       const res = await fetch(API_URL, {
@@ -129,18 +89,34 @@ export default function Home() {
     } catch (e) {
       setError(e);
     } finally {
-      loadAd();
       setRefreshing(false);
       clearTimeout(timeoutId);
     }
   };
 
-  const onRefresh = useCallback(
-    throttle(fetchData, 60000, {
-      trailing: false,
-    }),
-    [],
-  );
+  const loadAd = () => {
+    const unsubscribeLoaded = rewarded.addAdEventListener(
+      RewardedAdEventType.LOADED,
+      () => {
+        setAdLoaded(true);
+        rewarded.show();
+      },
+    );
+
+    const unsubscribeEarnedReward = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      fetchData,
+    );
+
+    rewarded.load();
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarnedReward();
+    };
+  };
+
+  const onRefresh = useCallback(loadAd, []);
 
   useEffect(() => {
     loadAd();

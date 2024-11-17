@@ -2,7 +2,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
+import {
+  AdEventType,
+  InterstitialAd,
+  TestIds,
+} from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
@@ -26,16 +30,56 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : HOME_AD[Platform.OS];
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ['fashion', 'clothing'],
+});
+
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const isRTL = i18n.dir() === 'rtl';
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
-  const [refreshing, setRefreshing] = useState(false);
+  const [adLoaded, setAdLoaded] = useState<boolean>(false);
+  const [refreshing, setRefreshing] = useState<boolean>(true);
 
   const handlePress = async (url: string) => {
     await Linking.openURL(url);
+  };
+
+  const loadAd = () => {
+    const unsubscribeLoaded = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setAdLoaded(true);
+        interstitial.show();
+      },
+    );
+
+    const unsubscribeClicked = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      () => setAdLoaded(false),
+    );
+
+    const unsubscribeClosed = interstitial.addAdEventListener(
+      AdEventType.CLOSED,
+      () => setAdLoaded(false),
+    );
+
+    const unsubscribeError = interstitial.addAdEventListener(
+      AdEventType.ERROR,
+      err => console.error(err),
+    );
+
+    interstitial.load();
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeClicked();
+      unsubscribeClosed();
+      unsubscribeError();
+    };
   };
 
   const fetchData = async () => {
@@ -43,6 +87,10 @@ export default function Home() {
     setRefreshing(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    if (adLoaded) {
+      interstitial.show();
+    }
 
     try {
       const res = await fetch(API_URL, {
@@ -81,6 +129,7 @@ export default function Home() {
     } catch (e) {
       setError(e);
     } finally {
+      loadAd();
       setRefreshing(false);
       clearTimeout(timeoutId);
     }
@@ -94,6 +143,7 @@ export default function Home() {
   );
 
   useEffect(() => {
+    loadAd();
     onRefresh();
   }, []);
 
@@ -300,10 +350,6 @@ export default function Home() {
               </Text>
             )}
           </ListItem>
-          <BannerAd
-            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-            unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : HOME_AD[Platform.OS]}
-          />
           {price?.updated_at && (
             <Text
               style={[

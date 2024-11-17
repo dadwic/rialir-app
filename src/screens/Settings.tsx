@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import RNRestart from 'react-native-restart';
-import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {
   View,
   Text,
@@ -15,7 +14,6 @@ import {ListItem, Icon, Switch} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {SETTINGS_AD} from '../config';
 import Storage from '../../storage';
 
 export default function Settings() {
@@ -148,10 +146,6 @@ export default function Settings() {
         </ListItem.Content>
         <Icon name={`chevron-${chevron}`} />
       </ListItem>
-      <BannerAd
-        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        unitId={__DEV__ ? TestIds.ADAPTIVE_BANNER : SETTINGS_AD[Platform.OS]}
-      />
       <Text
         style={[
           styles.version,

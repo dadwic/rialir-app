@@ -23,13 +23,13 @@ import {
   StyleSheet,
   RefreshControl,
 } from 'react-native';
-import {API_KEY, API_URL, HOME_AD} from '../config';
+import {API_KEY, API_URL, AD_UNIT_ID} from '../config';
 
 moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : HOME_AD[Platform.OS];
+const adUnitId = __DEV__ ? TestIds.REWARDED : AD_UNIT_ID[Platform.OS];
 const rewarded = RewardedAd.createForAdRequest(adUnitId);
 
 export default function Home() {

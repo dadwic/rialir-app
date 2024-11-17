@@ -112,7 +112,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('mailto:rialir.com@gmail.com')}
+        onPress={handlePress('mailto:info@rialir.com')}
         containerStyle={[
           styles.listItem,
           {
@@ -130,7 +130,7 @@ export default function Settings() {
       </ListItem>
       <ListItem
         bottomDivider
-        onPress={handlePress('mailto:rialir.com@gmail.com')}
+        onPress={handlePress('mailto:info@rialir.com')}
         containerStyle={[
           styles.listItem,
           {

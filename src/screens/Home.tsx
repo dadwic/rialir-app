@@ -46,8 +46,6 @@ export default function Home() {
   };
 
   const fetchData = async () => {
-    setError(null);
-    setRefreshing(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
@@ -94,6 +92,8 @@ export default function Home() {
   };
 
   const onRefresh = useCallback(() => {
+    setError(null);
+    setRefreshing(true);
     rewarded.load();
   }, []);
 

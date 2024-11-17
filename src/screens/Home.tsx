@@ -11,7 +11,6 @@ import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import throttle from 'lodash.throttle';
 import moment from 'moment-jalaali';
 import dayjs from 'dayjs';
 import {
@@ -94,7 +93,11 @@ export default function Home() {
     }
   };
 
-  const loadAd = () => {
+  const onRefresh = useCallback(() => {
+    rewarded.load();
+  }, []);
+
+  useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(
       RewardedAdEventType.LOADED,
       () => {
@@ -105,7 +108,9 @@ export default function Home() {
 
     const unsubscribeEarnedReward = rewarded.addAdEventListener(
       RewardedAdEventType.EARNED_REWARD,
-      fetchData,
+      _reward => {
+        fetchData();
+      },
     );
 
     rewarded.load();
@@ -114,13 +119,6 @@ export default function Home() {
       unsubscribeLoaded();
       unsubscribeEarnedReward();
     };
-  };
-
-  const onRefresh = useCallback(loadAd, []);
-
-  useEffect(() => {
-    loadAd();
-    onRefresh();
   }, []);
 
   return (

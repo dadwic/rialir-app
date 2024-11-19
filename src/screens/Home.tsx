@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import throttle from 'lodash.throttle';
 import {
+  BannerAd,
+  BannerAdSize,
   TestIds,
-  RewardedAd,
-  RewardedAdEventType,
+  useForeground,
 } from 'react-native-google-mobile-ads';
 import {Avatar, ListItem, Skeleton} from '@rneui/themed';
 import {getVersion} from 'react-native-device-info';
@@ -30,16 +32,21 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const adUnitId = __DEV__ ? TestIds.REWARDED : AD_UNIT_ID[Platform.OS];
-const rewarded = RewardedAd.createForAdRequest(adUnitId);
 
 export default function Home() {
   const {colors, dark} = useTheme();
   const {t, i18n} = useTranslation();
   const isRTL = i18n.dir() === 'rtl';
+  const bannerRef = useRef<BannerAd>(null);
   const [price, setPrice] = useState<any>({});
   const [error, setError] = useState<any>(null);
-  const [_adLoaded, setAdLoaded] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(true);
+
+  // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
+  // Therefore it's advised to "manually" request a new ad when the app is foregrounded (https://groups.google.com/g/google-admob-ads-sdk/c/rwBpqOUr8m8).
+  useForeground(() => {
+    Platform.OS === 'ios' && bannerRef.current?.load();
+  });
 
   const handlePress = async (url: string) => {
     await Linking.openURL(url);
@@ -91,34 +98,15 @@ export default function Home() {
     }
   };
 
-  const onRefresh = useCallback(() => {
-    setError(null);
-    setRefreshing(true);
-    rewarded.load();
-  }, []);
+  const onRefresh = useCallback(
+    throttle(fetchData, 60000, {
+      trailing: false,
+    }),
+    [],
+  );
 
   useEffect(() => {
-    const unsubscribeLoaded = rewarded.addAdEventListener(
-      RewardedAdEventType.LOADED,
-      () => {
-        setAdLoaded(true);
-        rewarded.show();
-      },
-    );
-
-    const unsubscribeEarnedReward = rewarded.addAdEventListener(
-      RewardedAdEventType.EARNED_REWARD,
-      _reward => {
-        fetchData();
-      },
-    );
-
-    rewarded.load();
-
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeEarnedReward();
-    };
+    onRefresh();
   }, []);
 
   return (
@@ -338,6 +326,11 @@ export default function Home() {
                 : dayjs(price.updated_at).format('MMM D, YYYY [at] H:mm')}
             </Text>
           )}
+          <BannerAd
+            ref={bannerRef}
+            unitId={adUnitId}
+            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          />
         </React.Fragment>
       )}
     </ScrollView>

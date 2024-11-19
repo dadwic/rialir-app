@@ -19,6 +19,7 @@
     "dayjs": "^1.11.13",
     "i18next": "^23.16.5",
     "intl-pluralrules": "^2.0.1",
+    "lodash.throttle": "^4.1.1",
     "moment-jalaali": "^0.10.4",
     "react": "18.2.0",
     "react-i18next": "^14.1.3",

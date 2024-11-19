@@ -31,7 +31,7 @@ moment.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
 
 const ccyFormat = (val: any) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const adUnitId = __DEV__ ? TestIds.REWARDED : AD_UNIT_ID[Platform.OS];
+const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : AD_UNIT_ID[Platform.OS];
 
 export default function Home() {
   const {colors, dark} = useTheme();

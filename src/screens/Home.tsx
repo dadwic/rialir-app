@@ -329,7 +329,7 @@ export default function Home() {
           <BannerAd
             ref={bannerRef}
             unitId={adUnitId}
-            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+            size={BannerAdSize.INLINE_ADAPTIVE_BANNER}
           />
         </React.Fragment>
       )}

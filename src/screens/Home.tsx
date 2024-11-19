@@ -315,7 +315,7 @@ export default function Home() {
           {price?.updated_at && (
             <Text
               style={[
-                styles.mt16,
+                styles.my16,
                 styles.time,
                 isRTL && styles.Vazirmatn,
                 {color: dark ? 'grey' : '#424242'},
@@ -366,8 +366,8 @@ const styles = StyleSheet.create({
   mt8: {
     marginTop: 8,
   },
-  mt16: {
-    marginTop: 16,
+  my16: {
+    marginVertical: 16,
   },
   time: {
     textAlign: 'center',
